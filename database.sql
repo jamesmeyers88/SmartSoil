@@ -37,6 +37,7 @@ CREATE TABLE device (
 CREATE TABLE rain (
 	event_ID SERIAL PRIMARY KEY,
 	zipcode INT REFERENCES zipcode(zipcode),
-	accumulation VARCHAR (20)
-	
+	accumulation VARCHAR (20),
+	precip VARCHAR (20),
+	icon VARCHAR (20)
 );

@@ -10,7 +10,8 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const cronRouter = require('./routes/cron.router')
+const cronRouter = require('./routes/cron.router');
+const rainRouter = require('./routes/rain.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -26,6 +27,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/cron', cronRouter);
+app.use('/api/rain', rainRouter);
 
 // Serve static files
 app.use(express.static('build'));
