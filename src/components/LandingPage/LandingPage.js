@@ -6,7 +6,7 @@ import Nav from '../Nav/Nav';
 
 
 
-class SignOutPage extends Component {
+class LandingPage extends Component {
   constructor(props) {
     super(props);
 
@@ -21,17 +21,17 @@ class SignOutPage extends Component {
   }
 
   
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.user.userName) {
-      this.props.history.push('/user');
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.user.userName) {
+  //     this.props.history.push('/user');
+  //   }
+  // }
 
-  handleInputChangeFor = propertyName => (event) => {
-    this.setState({
-      [propertyName]: event.target.value,
-    });
-  }
+  // handleInputChangeFor = propertyName => (event) => {
+  //   this.setState({
+  //     [propertyName]: event.target.value,
+  //   });
+  // }
 
   render() {
     return (
@@ -77,4 +77,4 @@ class SignOutPage extends Component {
   }
 }
 
-export default connect()(SignOutPage);
+export default connect()(LandingPage);

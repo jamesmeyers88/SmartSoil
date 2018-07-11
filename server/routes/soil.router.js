@@ -7,7 +7,7 @@ const router = express.Router();
 const cron = require('node-cron');
 const axios = require('axios');
 
-cron.schedule('* */1 * * *', function(){
+cron.schedule('*/30 * * * *', function(){
   console.log('running a task every hour');
   pingPhoton();
 });
