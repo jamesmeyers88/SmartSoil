@@ -41,6 +41,12 @@ class DevicePage extends Component {
           >
             Log Out
           </button>
+          <form>
+            <input type='text' placeholder="Device ID" />
+            <input type='text' placeholder="Authorization Token" />
+            <input type='text' placeholder="Zipcode" />
+            <input type='submit' value="Submit" />
+          </form>
         </div>
       );
     }

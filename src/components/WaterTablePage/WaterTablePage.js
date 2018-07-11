@@ -81,7 +81,7 @@ class WaterTablePage extends Component {
                     return (
                       <TableRow key={event.event_id}>
                         <TableCell>{event.date}</TableCell>
-                        <TableCell numeric>{event.water_amount}</TableCell>
+                        <TableCell>{event.water_amount}</TableCell>
                       </TableRow>
                     );
                   })}
