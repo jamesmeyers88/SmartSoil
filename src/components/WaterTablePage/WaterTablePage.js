@@ -11,6 +11,10 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import Button from '@material-ui/core/Button';
 
 
 const mapStateToProps = state => ({
@@ -111,6 +115,8 @@ class WaterTablePage extends Component {
                   <TableRow>
                     <TableCell>Date</TableCell>
                     <TableCell>Water Amount</TableCell>
+                    <TableCell></TableCell>
+                    <TableCell></TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -118,7 +124,11 @@ class WaterTablePage extends Component {
                     return (
                       <TableRow key={event.event_id}>
                         <TableCell>{event.date}</TableCell>
-                        <TableCell>{event.water_amount}</TableCell>
+                        <TableCell>{event.water_amount} oz</TableCell>
+                        <TableCell><Button><EditIcon /></Button></TableCell>
+                        <TableCell><Button><DeleteIcon /></Button></TableCell>
+                        {/* <Button><DeleteIcon /></Button> */}
+                        {/* <TableCell><DeleteIcon /></TableCell> */}
                       </TableRow>
                     );
                   })}
