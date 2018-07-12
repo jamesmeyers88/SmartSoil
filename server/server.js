@@ -11,7 +11,7 @@ const passport = require('./strategies/user.strategy');
 // Route includes
 const userRouter = require('./routes/user.router');
 const soilRouter = require('./routes/soil.router');
-const rainRouter = require('./routes/rain.router');
+const weatherRouter = require('./routes/weather.router');
 const waterRouter = require('./routes/water.router');
 
 // Body parser middleware
@@ -28,7 +28,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/api/soil', soilRouter);
-app.use('/api/rain', rainRouter);
+app.use('/api/weather', weatherRouter);
 app.use('/api/water', waterRouter);
 
 // Serve static files

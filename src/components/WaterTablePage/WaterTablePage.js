@@ -19,12 +19,16 @@ const mapStateToProps = state => ({
 
 class WaterTablePage extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-      waterEvents: []
+      waterEvents: [],
+      userEvent: {
+        date: '',
+        water_amount: '',
+        username: '',
     }
-  }
+  }}
   
 
   componentDidMount() {
@@ -47,6 +51,33 @@ class WaterTablePage extends Component {
       })
   }
 
+  submitWater = (event) => {
+    event.preventDefault();
+    axios.post('/api/water', this.state.userEvent)
+        .then((response) => {
+          console.log('in the water POST');
+          this.setState({
+            date: '',
+            water_amount: '',
+          })
+        })
+        .catch((error) => {
+          console.log(`There's been an error`, error)
+        });
+    } // end registerUser
+  
+    handleEvent = (key) => (event) => {
+      console.log(this.props.user.userName)
+      this.setState({
+          userEvent: {
+              ...this.state.userEvent,
+              [key]: event.target.value,
+              username: this.props.user.userName
+          }
+      })
+      console.log(this.state.userEvent);
+    } // end handleEvent
+
   // logout = () => {
   //   this.props.dispatch(triggerLogout());
   //   // this.props.history.push('home');
@@ -60,13 +91,15 @@ class WaterTablePage extends Component {
         <div>
           <div>
             <h3>Add a watering event</h3>
-              <input type='text' placeholder='Date (xx/xx/xxxx)'/>
-              <input type='text' placeholder='Amount (in oz)'/>
-              {/* <select>
-                  <option selected value="gal">gal</option>
-                  <option value="liter">L</option>
-              </select> */}
-              <input type='submit' value='Submit' />
+              <form onSubmit={this.submitWater}>
+                <input type='text' placeholder='Date (xx/xx/xxxx)' onChange={this.handleEvent('date')} value={this.state.userEvent.date} />
+                <input type='text' placeholder='Amount (in oz)' onChange={this.handleEvent('water_amount')} value={this.state.userEvent.water_amount} />
+                {/* <select>
+                    <option selected value="gal">gal</option>
+                    <option value="liter">L</option>
+                </select> */}
+                <input type='submit' value='Submit' />
+              </form>
           </div>
             <Paper>
               <Table>

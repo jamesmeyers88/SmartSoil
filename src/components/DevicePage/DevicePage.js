@@ -33,14 +33,7 @@ class DevicePage extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <h1 id="welcome">
-            Welcome, { this.props.user.userName }!
-          </h1>
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
+          <h2>Add another device</h2>
           <form>
             <input type='text' placeholder="Device ID" />
             <input type='text' placeholder="Authorization Token" />
