@@ -1,0 +1,8 @@
+#device_form {
+    background-color: #564;
+    width: 60%;
+    height: 30px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 2px;
+}

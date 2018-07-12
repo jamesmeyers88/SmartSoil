@@ -17,6 +17,7 @@ import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
+import '../DevicePage/DevicePage.css';
 
 
 const mapStateToProps = state => ({
@@ -101,7 +102,7 @@ class DevicePage extends Component {
         <div>
           <div>
             <h2>Add another device</h2>
-            <form onSubmit={this.submitDevice}>
+            <form onSubmit={this.submitDevice} id="device_form">
               <input type='text' placeholder="Device ID" onChange={this.handleEvent('device_id')} value={this.state.device.device_id}/>
               <input type='text' placeholder="Authorization Token"onChange={this.handleEvent('auth_token')} value={this.state.device.auth_token} />
               <input type='text' placeholder="Notes/Description" onChange={this.handleEvent('notes')} value={this.state.device.notes}/>
