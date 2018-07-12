@@ -28,6 +28,7 @@ class DashboardPage extends Component {
     // this.props.history.push('home');
   }
 
+
   render() {
     let content = null;
 
@@ -44,6 +45,8 @@ class DashboardPage extends Component {
           >
             Log Out
           </button>
+          
+
         </div>
       );
     }

@@ -72,7 +72,7 @@ class WaterTablePage extends Component {
         .catch((error) => {
           console.log(`There's been an error`, error)
         });
-    } // end registerUser
+    } // end submitWater
   
     handleEvent = (key) => (event) => {
       console.log(this.props.user.userName)
