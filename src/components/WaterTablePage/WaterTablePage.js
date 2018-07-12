@@ -28,6 +28,7 @@ class WaterTablePage extends Component {
         water_amount: '',
         username: '',
     }
+  
   }}
   
 
@@ -42,7 +43,7 @@ class WaterTablePage extends Component {
     }
   }
 
-  getWaterEvents = () => {
+  getWaterEvents(){
     axios.get('/api/water')
       .then((response) => {
         this.setState({
@@ -57,9 +58,12 @@ class WaterTablePage extends Component {
         .then((response) => {
           console.log('in the water POST');
           this.setState({
-            date: '',
-            water_amount: '',
-          })
+            userEvent: {
+              date: '',
+              water_amount: '',
+            }
+          });
+          this.getWaterEvents();
         })
         .catch((error) => {
           console.log(`There's been an error`, error)
