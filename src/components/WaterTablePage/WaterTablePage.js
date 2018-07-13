@@ -51,35 +51,23 @@ class WaterTablePage extends Component {
     }
   }
 
-  // getWaterEvents(){
-  //   axios.get('/api/water')
-  //     .then((response) => {
-  //       this.setState({
-  //         waterEvents: response.data
-  //       })
-  //     })
-  // }
 
   submitWater = (event) => {
     event.preventDefault();
-    axios.post('/api/water', this.state.userEvent)
-        .then((response) => {
-          console.log('in the water POST');
-          this.setState({
-            userEvent: {
-              date: '',
-              water_amount: '',
-            }
-          });
-          this.getWaterEvents();
-        })
-        .catch((error) => {
-          console.log(`There's been an error`, error)
-        });
+    console.log('this is the new input state', this.state.userEvent);
+    this.props.dispatch({ type: WATER_ACTIONS.SEND_EVENT, payload: this.state.userEvent});
+
+    this.setState({
+      userEvent: {
+        date: '',
+        water_amount: '',
+      }
+    });
+
     } // end submitWater
   
     handleEvent = (key) => (event) => {
-      console.log(this.props.user.userName)
+      // console.log(this.props.user.userName)
       this.setState({
           userEvent: {
               ...this.state.userEvent,
@@ -87,6 +75,16 @@ class WaterTablePage extends Component {
               username: this.props.user.userName
           }
       })
+      console.log(this.state.userEvent);
+    } // end handleEvent
+
+    deleteEvent = (event) => {
+      event.preventDefault();
+      console.log(this.props.user.userName)
+      this.props.dispatch({ type: WATER_ACTIONS.DELETE_EVENT, payload: this.state.userEvent});
+
+   
+    
       console.log(this.state.userEvent);
     } // end handleEvent
 
@@ -102,7 +100,7 @@ class WaterTablePage extends Component {
       content = (
         <div>
           <div>
-            <pre>{JSON.stringify(this.props.events.water.events)}</pre>
+            {/* <pre>{JSON.stringify(this.props.events)}</pre> */}
             <h3>Add a watering event</h3>
               <form onSubmit={this.submitWater} id="water_form">
                 <input type='text' placeholder='Date (xx/xx/xxxx)' onChange={this.handleEvent('date')} value={this.state.userEvent.date} />
@@ -131,7 +129,7 @@ class WaterTablePage extends Component {
                         <TableCell>{event.date}</TableCell>
                         <TableCell>{event.water_amount} oz</TableCell>
                         <TableCell><Button><EditIcon /></Button></TableCell>
-                        <TableCell><Button><DeleteIcon /></Button></TableCell>
+                        <TableCell><Button onClick={this.deleteEvent}><DeleteIcon /></Button></TableCell>
                       </TableRow>
                     );
                   })}
