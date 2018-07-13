@@ -1,0 +1,4 @@
+export const WATER_ACTIONS = {
+    FETCH_EVENTS: 'FETCH_EVENTS',
+    SHOW_EVENTS: 'SHOW_EVENTS',
+}

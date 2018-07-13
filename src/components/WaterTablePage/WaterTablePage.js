@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
+import { WATER_ACTIONS } from '../../redux/actions/waterActions';
 import axios from 'axios';
 import { triggerLogout } from '../../redux/actions/loginActions';
 
@@ -20,6 +21,7 @@ import '../WaterTablePage/WaterTablePage.css';
 
 const mapStateToProps = state => ({
   user: state.user,
+  events: state,
 });
 
 class WaterTablePage extends Component {
@@ -39,7 +41,8 @@ class WaterTablePage extends Component {
 
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-    this.getWaterEvents();
+    this.props.dispatch({ type: WATER_ACTIONS.FETCH_EVENTS });
+    
   }
 
   componentDidUpdate() {
@@ -48,14 +51,14 @@ class WaterTablePage extends Component {
     }
   }
 
-  getWaterEvents(){
-    axios.get('/api/water')
-      .then((response) => {
-        this.setState({
-          waterEvents: response.data
-        })
-      })
-  }
+  // getWaterEvents(){
+  //   axios.get('/api/water')
+  //     .then((response) => {
+  //       this.setState({
+  //         waterEvents: response.data
+  //       })
+  //     })
+  // }
 
   submitWater = (event) => {
     event.preventDefault();
@@ -99,6 +102,7 @@ class WaterTablePage extends Component {
       content = (
         <div>
           <div>
+            <pre>{JSON.stringify(this.props.events.water.events)}</pre>
             <h3>Add a watering event</h3>
               <form onSubmit={this.submitWater} id="water_form">
                 <input type='text' placeholder='Date (xx/xx/xxxx)' onChange={this.handleEvent('date')} value={this.state.userEvent.date} />
@@ -121,15 +125,13 @@ class WaterTablePage extends Component {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {this.state.waterEvents.map(event => {
+                  {this.props.events.water.events.map(event => {
                     return (
                       <TableRow key={event.event_id}>
                         <TableCell>{event.date}</TableCell>
                         <TableCell>{event.water_amount} oz</TableCell>
                         <TableCell><Button><EditIcon /></Button></TableCell>
                         <TableCell><Button><DeleteIcon /></Button></TableCell>
-                        {/* <Button><DeleteIcon /></Button> */}
-                        {/* <TableCell><DeleteIcon /></TableCell> */}
                       </TableRow>
                     );
                   })}

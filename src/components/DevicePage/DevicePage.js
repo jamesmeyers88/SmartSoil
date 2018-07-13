@@ -70,7 +70,7 @@ class DevicePage extends Component {
               notes: '',
             }
           });
-          // this.getWaterEvents();
+          this.getDevices();
         })
         .catch((error) => {
           console.log(`There's been an error`, error)
