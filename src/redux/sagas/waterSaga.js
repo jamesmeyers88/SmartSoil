@@ -36,6 +36,11 @@ function* deleteEvent(action){
   try{
     console.log(`in DELETE event on SAGA`, action.payload)
     yield call(axios.delete, `/api/water/${action.payload}`)
+    let event = yield getEvents();
+    yield put({ 
+      type: WATER_ACTIONS.FETCH_EVENTS,
+      payload: event,
+    })
   } catch (error){
     console.log('error in water SAGA DELETE', error)
   } 
