@@ -46,7 +46,7 @@ class DashboardPage extends Component {
             Log Out
           </button>
           
-
+          <img src="https://www.indiabix.com/_files/images/data-interpretation/line-charts/15-3-1-1.png" alt="graph" />
         </div>
       );
     }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Nav from '../../components/Nav/Nav';
+import Nav from '../Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { WATER_ACTIONS } from '../../redux/actions/waterActions';
-import axios from 'axios';
-import { triggerLogout } from '../../redux/actions/loginActions';
+// import axios from 'axios';
+// import { triggerLogout } from '../../redux/actions/loginActions';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -12,7 +12,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
+// import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
@@ -51,7 +51,6 @@ class WaterTablePage extends Component {
     }
   }
 
-
   submitWater = (event) => {
     event.preventDefault();
     console.log('this is the new input state', this.state.userEvent);
@@ -63,7 +62,6 @@ class WaterTablePage extends Component {
         water_amount: '',
       }
     });
-
     } // end submitWater
   
     handleEvent = (key) => (event) => {
@@ -78,15 +76,19 @@ class WaterTablePage extends Component {
       console.log(this.state.userEvent);
     } // end handleEvent
 
-    deleteEvent = (event) => {
-      event.preventDefault();
-      console.log(this.props.user.userName)
-      this.props.dispatch({ type: WATER_ACTIONS.DELETE_EVENT, payload: this.state.userEvent});
-
-   
-    
+    deleteEvent = (id) => {
+      // event.preventDefault();
+      console.log(id)
+      this.props.dispatch({ type: WATER_ACTIONS.DELETE_EVENT, payload: id});
       console.log(this.state.userEvent);
-    } // end handleEvent
+    } // end deleteEvent
+
+    updateEvent = (id) => {
+      // event.preventDefault();
+      console.log(id)
+      this.props.dispatch({ type: WATER_ACTIONS.UPDATE_EVENT, payload: id});
+      console.log(this.state.userEvent);
+    } // end updateEvent
 
   // logout = () => {
   //   this.props.dispatch(triggerLogout());
@@ -112,8 +114,8 @@ class WaterTablePage extends Component {
                 <input type='submit' value='Submit' />
               </form>
           </div>
-            <Paper>
-              <Table>
+            <Paper id="paper">
+              <Table id="table">
                 <TableHead>
                   <TableRow>
                     <TableCell>Date</TableCell>
@@ -128,8 +130,8 @@ class WaterTablePage extends Component {
                       <TableRow key={event.event_id}>
                         <TableCell>{event.date}</TableCell>
                         <TableCell>{event.water_amount} oz</TableCell>
-                        <TableCell><Button><EditIcon /></Button></TableCell>
-                        <TableCell><Button onClick={this.deleteEvent}><DeleteIcon /></Button></TableCell>
+                        <TableCell><Button onClick={() => this.updateEvent(Number(event.event_id))}><EditIcon /></Button></TableCell>
+                        <TableCell><Button onClick={() => this.deleteEvent(Number(event.event_id))}><DeleteIcon /></Button></TableCell>
                       </TableRow>
                     );
                   })}

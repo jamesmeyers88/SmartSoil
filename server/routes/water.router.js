@@ -6,7 +6,7 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    let queryText = `SELECT * FROM water;`;
+    let queryText = `SELECT * FROM water ORDER BY event_id DESC;`;
     pool.query(queryText)
       .then((result) => {
         console.log(`received water events from DB`);
@@ -34,6 +34,20 @@ router.post('/', (req, res) => {
     console.log(`Error handling POST on water.router`, error);
     res.sendStatus(500);
   })
+});
+
+router.delete('/:id', (req, res) => {
+    console.log(`in DELETE on water.router`, req.params.id)
+    const id = Number(req.params.id);
+    let queryText = `DELETE FROM water WHERE event_id = $1`;
+    pool.query(queryText, [req.params.id])
+    .then((result) => {
+      console.log( `error DELETing water from DB`)
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log(error);
+        res.sendStatus(500);
+    });
 });
 
 module.exports = router;

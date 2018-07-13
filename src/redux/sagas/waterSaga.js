@@ -1,4 +1,4 @@
-import { USER_ACTIONS } from '../actions/userActions';
+// import { USER_ACTIONS } from '../actions/userActions';
 import { WATER_ACTIONS } from '../actions/waterActions';
 import { getEvents } from '../requests/waterRequests';
 import { put, call, takeLatest } from 'redux-saga/effects';
@@ -32,9 +32,19 @@ function* sendEvent(action) {
   }
 }
 
+function* deleteEvent(action){
+  try{
+    console.log(`in DELETE event on SAGA`, action.payload)
+    yield call(axios.delete, `/api/water/${action.payload}`)
+  } catch (error){
+    console.log('error in water SAGA DELETE', error)
+  } 
+}
+
 function* waterSaga() {
   yield takeLatest(WATER_ACTIONS.FETCH_EVENTS, fetchEvents);
   yield takeLatest(WATER_ACTIONS.SEND_EVENT, sendEvent);
+  yield takeLatest(WATER_ACTIONS.DELETE_EVENT, deleteEvent);
 }
 
 export default waterSaga;
