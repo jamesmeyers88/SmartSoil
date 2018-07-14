@@ -6,7 +6,7 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    let queryText = `SELECT * FROM device;`;
+    let queryText = `SELECT * FROM device ORDER BY id DESC;`;
     pool.query(queryText)
       .then((result) => {
         console.log(`received device info from DB`, result.rows);

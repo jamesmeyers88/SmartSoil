@@ -10,12 +10,13 @@ export function getDevices() {
 }
 
 export function postDevices(payload) {
-//   const event = ({
-//     username: payload.username,
-//     date: payload.date,
-//     water_amount: payload.water_amount
-//   });
-  return axios.post('/api/device')
+  const device = ({
+    device_id: payload.device_id,
+    auth_token: payload.auth_token,
+    username: payload.username,
+    notes: payload.notes,
+  });
+  return axios.post('/api/device', device)
     .then(response => response.data)
     .catch((error) => { 
         console.log(`There's been an error GETing devices`, error);

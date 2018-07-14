@@ -6,7 +6,7 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { DEVICE_ACTIONS } from '../../redux/actions/deviceActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
-import axios from 'axios';
+// import axios from 'axios';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -15,9 +15,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 // import Typography from '@material-ui/core/Typography';
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
-import Button from '@material-ui/core/Button';
+// import DeleteIcon from '@material-ui/icons/Delete';
+// import EditIcon from '@material-ui/icons/Edit';
+// import Button from '@material-ui/core/Button';
 import '../DevicePage/DevicePage.css';
 
 
@@ -51,33 +51,20 @@ class DevicePage extends Component {
     }
   }
 
-  getDevices(){
-    axios.get('/api/device')
-      .then((response) => {
-        this.setState({
-          deviceList: response.data
-        })
-      })
-  }
-
   submitDevice = (event) => {
     event.preventDefault();
-    axios.post('/api/device', this.state.device)
-        .then((response) => {
-          console.log('in the water POST');
-          this.setState({
-            device: {
-              device_id: '',
-              auth_token: '',
-              notes: '',
-            }
-          });
-          this.getDevices();
-        })
-        .catch((error) => {
-          console.log(`There's been an error`, error)
-        });
-    } // end submitWater
+    console.log('this is the new input state', this.state.device);
+    this.props.dispatch({ type: DEVICE_ACTIONS.SEND_DEVICE, payload: this.state.device});
+
+    this.setState({
+      device: {
+        device_id: '',
+        auth_token: '',
+        notes: '',
+        username: '',
+      }
+    });
+    } // end submitDevice
   
     handleEvent = (key) => (event) => {
       console.log(this.props.user.userName)
