@@ -6,8 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 // import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
-import { WATER_ACTIONS } from '../../redux/actions/waterActions'
-import './WaterTablePage.css';
+import { DEVICE_ACTIONS } from '../../redux/actions/deviceActions'
+import './WaterModal.css';
 import { connect } from 'react-redux';
 
 function rand() {
@@ -37,14 +37,15 @@ const styles = theme => ({
 
 const mapStateToProps = state => ({
   user: state.user,
-  events: state,
+  devices: state,
 });
 class SimpleModal extends React.Component {
   state = {
     open: false,
-    userEvent: {
-      date: '',
-      water_amount: '',
+    device: {
+      device_id: '',
+      auth_token: '',
+      notes: '',
       username: '',
     }
   };
@@ -58,27 +59,27 @@ class SimpleModal extends React.Component {
     this.setState({ open: false });
   };
 
-  updateEvent = (id) => {
+  updateDevice = (id) => {
     // event.preventDefault();
     // console.log(id)
     let toUpdate = {
-      event_id: id,
-      userEvent: this.state.userEvent
+      device_id: id,
+      device: this.state.device
     }
-    this.props.dispatch({ type: WATER_ACTIONS.UPDATE_EVENT, payload: toUpdate});
+    this.props.dispatch({ type: DEVICE_ACTIONS.UPDATE_DEVICE, payload: toUpdate});
     // console.log(this.state.userEvent);
   } // end updateEvent
 
   handleEvent = (key) => (event) => {
     // console.log(this.props.user.userName)
     this.setState({
-        userEvent: {
-            ...this.state.userEvent,
+        device: {
+            ...this.state.device,
             [key]: event.target.value,
             username: this.props.user.userName
         }
     })
-    console.log(this.state.userEvent);
+    console.log(this.state.device);
   } // end handleEvent
 
   render() {
@@ -98,15 +99,15 @@ class SimpleModal extends React.Component {
             <Typography variant="title" id="modal-title">
               Edit your water event:
             </Typography>
-            {/* <Typography variant="subheading" id="simple-modal-description">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography> */}
-            <form id="update_form" onSubmit={()=>this.updateEvent(this.props.updateId)}>
-              <input type='text' placeholder="Date (xx/xx/xxxx)" onChange={this.handleEvent('date')} 
-              value={this.state.userEvent.date} />
-              <input type='text' placeholder='Amount (in oz)' onChange={this.handleEvent('water_amount')} 
-              value={this.state.userEvent.water_amount} />
-              <input type='submit' value='Submit' />
+
+            <form id="update_form" onSubmit={()=>this.updateDevice(this.props.updateId)}>
+              <input type='text' placeholder="Device ID" onChange={this.handleEvent('device_id')} 
+              value={this.state.device.device_id}/>
+              <input type='text' placeholder="Authorization Token"onChange={this.handleEvent('auth_token')} 
+              value={this.state.device.auth_token} />
+              <input type='text' placeholder="Notes/Description" onChange={this.handleEvent('notes')} 
+              value={this.state.device.notes}/>
+              <input type='submit' value="Submit" />
             </form>
             <SimpleModalWrapped />
           </div>

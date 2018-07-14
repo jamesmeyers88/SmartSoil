@@ -42,10 +42,9 @@ router.delete('/:id', (req, res) => {
     let queryText = `DELETE FROM water WHERE event_id = $1`;
     pool.query(queryText, [req.params.id])
     .then((result) => {
-      console.log( `error DELETing water from DB`)
-        res.sendStatus(200);
+      res.sendStatus(200);
     }).catch((error) => {
-        console.log(error);
+      console.log( `error DELETing water from DB`, error)
         res.sendStatus(500);
     });
 });

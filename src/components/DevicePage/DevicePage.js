@@ -6,6 +6,7 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { DEVICE_ACTIONS } from '../../redux/actions/deviceActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
+import SimpleModalWrapped from '../EditModals/DeviceModal';
 // import axios from 'axios';
 
 import Table from '@material-ui/core/Table';
@@ -15,9 +16,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 // import Typography from '@material-ui/core/Typography';
-// import DeleteIcon from '@material-ui/icons/Delete';
+import DeleteIcon from '@material-ui/icons/Delete';
 // import EditIcon from '@material-ui/icons/Edit';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import '../DevicePage/DevicePage.css';
 
 
@@ -78,6 +79,13 @@ class DevicePage extends Component {
       console.log(this.state.device);
     } // end handleEvent
 
+    deleteDevice = (id) => {
+      // event.preventDefault();
+      console.log(id)
+      this.props.dispatch({ type: DEVICE_ACTIONS.DELETE_DEVICE, payload: id});
+      console.log(this.state.userEvent);
+    } // end deleteEvent
+
   logout = () => {
     this.props.dispatch(triggerLogout());
     // this.props.history.push('home');
@@ -118,8 +126,8 @@ class DevicePage extends Component {
                           <TableCell>{device.device_id}</TableCell>
                           <TableCell>{device.auth_token}</TableCell>
                           <TableCell>{device.notes}</TableCell>
-                          {/* <TableCell><SimpleModalWrapped updateId={event.event_id}/></TableCell> */}
-                        {/* <TableCell><Button onClick={() => this.deleteEvent(Number(event.event_id))}><DeleteIcon /></Button></TableCell> */}
+                          <TableCell><SimpleModalWrapped updateId={device.device_id}/></TableCell>
+                          <TableCell><Button onClick={() => this.deleteDevice(device.device_id)}><DeleteIcon /></Button></TableCell>
                         </TableRow>
                       );
                     })}

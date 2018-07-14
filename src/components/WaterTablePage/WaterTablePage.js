@@ -5,7 +5,7 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { WATER_ACTIONS } from '../../redux/actions/waterActions';
 // import axios from 'axios';
 // import { triggerLogout } from '../../redux/actions/loginActions';
-import SimpleModalWrapped from './WaterTablePageModal'
+import SimpleModalWrapped from '../EditModals/WaterModal';
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';

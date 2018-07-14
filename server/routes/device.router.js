@@ -36,4 +36,36 @@ router.post('/', (req, res) => {
   })
 });// end device.router POST
 
+router.delete('/:id', (req, res) => {
+  console.log(`in DELETE on device.router`, req.params.id)
+  const id = Number(req.params.id);
+  let queryText = `DELETE FROM device WHERE device_id = $1`;
+  pool.query(queryText, [req.params.id])
+  .then((result) => {
+    res.sendStatus(200);
+  }).catch((error) => {
+    console.log( `error DELETing device from DB`, error)
+      res.sendStatus(500);
+  });
+});
+
+router.put('/:id', (req, res) => {
+  console.log(`in UPDATE on device.router`, req.params.id);
+  console.log(`in UPDATE on device.router - BODY`, req.body)
+  let id = req.params.id;
+  let auth_token = req.body.device.auth_token;
+  let notes = req.body.device.notes;
+  let deviceID = req.body.device.device_id;
+  let queryText = `UPDATE device SET device_id = $1, auth_token = $2, notes = $3
+  WHERE device_id = $4;`;
+  pool.query(queryText, [deviceID, auth_token, notes, id])
+  .then((result) => {
+    console.log( `error UPDATing water from DB`)
+      res.sendStatus(200);
+  }).catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+  });
+});
+
 module.exports = router;
