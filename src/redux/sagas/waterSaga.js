@@ -46,10 +46,20 @@ function* deleteEvent(action){
   } 
 }
 
+function* updateEvent(action){
+  try{
+    console.log(`in UPDATE event on SAGA`, action.payload)
+    yield call(axios.put, `/api/water/${action.payload.event_id}`, action.payload)
+  } catch (error){
+    console.log('error in water SAGA DELETE', error)
+  } 
+}
+
 function* waterSaga() {
   yield takeLatest(WATER_ACTIONS.FETCH_EVENTS, fetchEvents);
   yield takeLatest(WATER_ACTIONS.SEND_EVENT, sendEvent);
   yield takeLatest(WATER_ACTIONS.DELETE_EVENT, deleteEvent);
+  yield takeLatest(WATER_ACTIONS.UPDATE_EVENT, updateEvent)
 }
 
 export default waterSaga;
