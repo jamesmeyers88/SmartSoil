@@ -7,7 +7,7 @@ import Modal from '@material-ui/core/Modal';
 // import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import { WATER_ACTIONS } from '../../redux/actions/waterActions'
-import './WaterModal.css';
+import '../../styles/WaterModal.css';
 import { connect } from 'react-redux';
 
 function rand() {

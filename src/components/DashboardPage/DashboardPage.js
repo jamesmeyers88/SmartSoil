@@ -61,10 +61,28 @@ class DashboardPage extends Component {
 
   render() {
     let content = null;
+    let moistness = this.props.moisture.soil
     let moistNegative = -(this.props.moisture.soil)
-    // let moist = [this.props.soil.soil[0]]
-    // console.log(`this is moist`, moist);
-    // console.log(`this is moist`, moist[0].moisture )
+    let soilMessage = null;
+
+    if (this.props.moisture.soil < 4000){
+      soilMessage = (
+        <div>
+          <p>
+            You are successfully moist.
+          </p>
+        </div>
+      )
+    } else {
+      soilMessage = (
+        <div>
+        <p>
+          You should seriously think about watering.
+        </p>
+      </div>
+      )
+      
+    }
 
     if (this.props.user.userName) {
       content = (
@@ -74,17 +92,12 @@ class DashboardPage extends Component {
           >
             Welcome, { this.props.user.userName }!
           </h1>
-          <button
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
-          <pre>{JSON.stringify(this.props.moisture.soil)}</pre>
+          <pre>{JSON.stringify(this.props.temp)}</pre>
           <p></p>
-          <p id="moist">{moistNegative}</p>
+          {/* <p id="moist">Negative value for graphing: {moistNegative}</p> */}
+          {/* <p id="moist">Regular soil value {moistness}</p> */}
+          { soilMessage }
           <WeatherComponent />
-          {/* <img src="https://www.indiabix.com/_files/images/data-interpretation/line-charts/15-3-1-1.png" alt="graph" /> */}
-  
         </div>
       );
     }

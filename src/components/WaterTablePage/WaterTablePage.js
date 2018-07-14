@@ -17,7 +17,7 @@ import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 // import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
-import '../WaterTablePage/WaterTablePage.css';
+import '../../styles/WaterTablePage.css'
 
 
 const mapStateToProps = state => ({
@@ -103,7 +103,7 @@ class WaterTablePage extends Component {
       content = (
         <div>
           <div>
-            <pre>{JSON.stringify(this.props.events.water)}</pre>
+            {/* <pre>{JSON.stringify(this.props.events.water)}</pre> */}
             <h3>Add a watering event</h3>
               <form onSubmit={this.submitWater} id="water_form">
                 <input type='text' placeholder='Date (xx/xx/xxxx)' onChange={this.handleEvent('date')} value={this.state.userEvent.date} />
