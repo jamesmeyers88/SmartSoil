@@ -14,6 +14,7 @@ const userRouter = require('./routes/user.router');
 // const weatherRouter = require('./routes/weather.router');
 const waterRouter = require('./routes/water.router');
 const deviceRouter = require('./routes/device.router');
+// const forecastRouter = require('./routes/forecast.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,6 +33,7 @@ app.use('/api/user', userRouter);
 // app.use('/api/weather', weatherRouter);
 app.use('/api/water', waterRouter);
 app.use('/api/device', deviceRouter);
+// app.use('/api/forecast', forecastRouter );
 
 // Serve static files
 app.use(express.static('build'));

@@ -30,7 +30,7 @@ class WaterTablePage extends Component {
   constructor(props){
     super(props);
     this.state = {
-      waterEvents: [],
+      // waterEvents: [],
       userEvent: {
         date: '',
         water_amount: '',

@@ -7,11 +7,11 @@ import axios from 'axios';
 function* fetchDevices() {
   try {
     // yield put({ type: WATER_ACTIONS.GET_EVENTS });
-    let event = yield getDevices();
-    console.log(`in device SAGA`, event);
+    let device = yield getDevices();
+    console.log(`in device SAGA`, device);
     yield put({
       type: DEVICE_ACTIONS.SHOW_DEVICES,
-      payload: event,
+      payload: device,
     });
   } catch (error) {
     console.log('error in device SAGA fetch', error)

@@ -3,6 +3,7 @@ import userSaga from './userSaga';
 import loginSaga from './loginSaga';
 import waterSaga from './waterSaga';
 import deviceSaga from './deviceSaga';
+import weatherSaga from './weatherSaga';
 
 
 
@@ -12,6 +13,7 @@ export default function* rootSaga() {
     loginSaga(),
     waterSaga(),
     deviceSaga(),
+    weatherSaga(),
     // watchIncrementAsync()
   ]);
 }
