@@ -4,6 +4,7 @@ import loginSaga from './loginSaga';
 import waterSaga from './waterSaga';
 import deviceSaga from './deviceSaga';
 import weatherSaga from './weatherSaga';
+import soilSaga from './soilSaga';
 
 
 
@@ -14,6 +15,7 @@ export default function* rootSaga() {
     waterSaga(),
     deviceSaga(),
     weatherSaga(),
+    soilSaga(),
     // watchIncrementAsync()
   ]);
 }

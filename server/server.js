@@ -10,7 +10,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-// const soilRouter = require('./routes/soil.router');
+const soilRouter = require('./routes/soil.router');
 // const weatherRouter = require('./routes/weather.router');
 const waterRouter = require('./routes/water.router');
 const deviceRouter = require('./routes/device.router');
@@ -29,7 +29,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-// app.use('/api/soil', soilRouter);
+app.use('/api/soil', soilRouter);
 // app.use('/api/weather', weatherRouter);
 app.use('/api/water', waterRouter);
 app.use('/api/device', deviceRouter);

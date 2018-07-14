@@ -21,11 +21,11 @@ function* fetchDevices() {
 function* sendDevice(action) {
   try{
     console.log(`in SEND device on SAGA`, action.payload)
-    let event = yield getDevices();
+    let device = yield getDevices();
     yield call(axios.post, '/api/device', action.payload);
     yield put({ 
       type: DEVICE_ACTIONS.FETCH_DEVICES,
-      payload: event,
+      payload: device,
     })
   } catch (error){
     console.log('error in device SAGA send', error)

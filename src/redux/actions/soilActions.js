@@ -1,0 +1,4 @@
+export const SOIL_ACTIONS = {
+    FETCH_SOIL: 'FETCH_SOIL',
+    SHOW_SOIL: 'SHOW_SOIL'
+}

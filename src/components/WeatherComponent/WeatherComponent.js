@@ -3,7 +3,8 @@ import { WEATHER_ACTIONS } from '../../redux/actions/weatherActions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
-    temp: state.americaTemp,
+    user: state.user,
+    temp: state.weather,
   });
 class WeatherComponent extends Component {
     componentDidMount() {
@@ -13,11 +14,12 @@ class WeatherComponent extends Component {
         // // })
       }
     render() {
-        
+        let modTemp = parseInt(this.props.temp.temp);
+
         return (
             <div>
-            <pre>{JSON.stringify(this.props.temp)}</pre>  
-                <p>Temp goes here</p>
+            {/* <pre>{JSON.stringify(modTemp)}</pre>   */}
+                <p>{modTemp}°F</p>
                 <p>Icon goes here</p>
             </div>
         )

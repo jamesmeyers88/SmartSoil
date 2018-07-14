@@ -10,7 +10,8 @@ const temp = (state = [], action) => {
         // this.setState({
         //     temp: action.payload,
         // })
-        return state
+        console.log(`in tempReducer`, state)
+        return action.payload
     default:
       return state;
   }
