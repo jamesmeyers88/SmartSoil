@@ -53,10 +53,10 @@ router.delete('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
   console.log(`in UPDATE on water.router`, req.params.id);
   console.log(`in UPDATE on water.router - BODY`, req.body)
-  let id = Number(req.params.id);
-  let date = req.body.date;
-  let water_amount = parseInt(req.body.water_amount);
-  let queryText = `UPDATE water SET date = '$1', water_amount = $2
+  let id = req.params.id;
+  let date = req.body.userEvent.date;
+  let water_amount = req.body.userEvent.water_amount;
+  let queryText = `UPDATE water SET date = $1, water_amount = $2
   WHERE event_id = $3;`;
   pool.query(queryText, [date, water_amount, id])
   .then((result) => {
