@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
+import { DEVICE_ACTIONS } from '../../redux/actions/deviceActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 import axios from 'axios';
 
@@ -22,6 +23,7 @@ import '../DevicePage/DevicePage.css';
 
 const mapStateToProps = state => ({
   user: state.user,
+  devices: state,
 });
 
 class DevicePage extends Component {
@@ -40,7 +42,7 @@ class DevicePage extends Component {
   }}
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-    this.getDevices();
+    this.props.dispatch({ type: DEVICE_ACTIONS.FETCH_DEVICES });
   }
 
   componentDidUpdate() {
@@ -101,6 +103,7 @@ class DevicePage extends Component {
       content = (
         <div>
           <div>
+          <pre>{JSON.stringify(this.props.devices.device.device)}</pre>
             <h2>Add another device</h2>
             <form onSubmit={this.submitDevice} id="device_form">
               <input type='text' placeholder="Device ID" onChange={this.handleEvent('device_id')} value={this.state.device.device_id}/>
@@ -122,16 +125,14 @@ class DevicePage extends Component {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {this.state.deviceList.map(device => {
+                    {this.props.devices.device.device.map(device => {
                       return (
                         <TableRow key={device.device_id}>
                           <TableCell>{device.device_id}</TableCell>
                           <TableCell>{device.auth_token}</TableCell>
                           <TableCell>{device.notes}</TableCell>
-                          <TableCell><Button><EditIcon /></Button></TableCell>
-                          <TableCell><Button><DeleteIcon /></Button></TableCell>
-                          {/* <Button><DeleteIcon /></Button> */}
-                          {/* <TableCell><DeleteIcon /></TableCell> */}
+                          {/* <TableCell><SimpleModalWrapped updateId={event.event_id}/></TableCell> */}
+                        {/* <TableCell><Button onClick={() => this.deleteEvent(Number(event.event_id))}><DeleteIcon /></Button></TableCell> */}
                         </TableRow>
                       );
                     })}

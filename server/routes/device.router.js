@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
     let queryText = `SELECT * FROM device;`;
     pool.query(queryText)
       .then((result) => {
-        console.log(`received device info from DB`);
+        console.log(`received device info from DB`, result.rows);
         res.send(result.rows);
       })
       .catch((error) => {
