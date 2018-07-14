@@ -1,31 +1,20 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Nav from '../Nav/Nav';
+import LandingPageNav from './LandingPageNav';
 
 
 
 
 class LandingPage extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      username: '',
-      password: '',
-    };
-  }
 
   componentDidMount() {
     // get call for the soil data
   }
 
   
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.user.userName) {
-  //     this.props.history.push('/user');
-  //   }
-  // }
+ 
 
   // handleInputChangeFor = propertyName => (event) => {
   //   this.setState({
@@ -37,7 +26,7 @@ class LandingPage extends Component {
     return (
 
       <div>
-        <Nav />
+        <LandingPageNav />
         {/* <form onSubmit={this.login}>
           <h1>Login</h1>
           <div>
@@ -68,10 +57,14 @@ class LandingPage extends Component {
               name="submit"
               value="Log In"
             />
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
+
           </div>
         </form> */}
+        <p>With this application, you'll be able to keep track of the moisture needs of your lawn and garden, compare the need to water with your local forcast, and track your watering events so you can help conserve water and still enjoy your yard to the fullest. </p>
+        <img src='http://www.vegetablegardener.com/assets/uploads/posts/7810/yard_garden.jpg' />
+        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Jardin_potager_3.jpg/180px-Jardin_potager_3.jpg'/>
+        <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Katze_Emmy_im_Blumentopf_sitzend.jpg/180px-Katze_Emmy_im_Blumentopf_sitzend.jpg'/>
+        <img src='https://upload.wikimedia.org/wikipedia/commons/7/71/Denver_Lawn_Care.jpg'/>
       </div>
     );
   }

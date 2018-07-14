@@ -6,7 +6,7 @@ const soil = (state = [], action) => {
     case SOIL_ACTIONS.FETCH_SOIL:
         console.log('in soilReducer', state)
         return state;
-    case SOIL_ACTIONS.SHOW_SOIL:
+    case SOIL_ACTIONS.SHOW_MOISTURE:
         return action.payload
     default:
       return state;

@@ -8,9 +8,12 @@ body {
 }
 
 .instructions {
-    background-color: #00acb0;
+    /* background-color: #00acb0; */
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Green_Grass.JPG/320px-Green_Grass.JPG');
     padding: 5px;
     color: #ece7e7;
+    text-align: center;
+    font-size: 30pt;
 }
 
 form {
@@ -48,7 +51,8 @@ input[type="submit"] {
 }
 
 .navbar {
-  background-color: #00acb0;
+  background-color: #53815e;
+  background-image: url('http://mediad.publicbroadcasting.net/p/wnpr/files/styles/x_large/public/201608/4671001039_1729876708_o_1.jpg');
   width: 100%;
   border-radius: 0px;
 }

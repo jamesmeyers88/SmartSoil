@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-class Nav extends Component {
+class LandingPageNav extends Component {
 
   logout = () => {
     this.props.dispatch(triggerLogout());
@@ -33,17 +33,8 @@ class Nav extends Component {
             Info Page
           </Link>
         </li> */}
-        <li>
-          <Link to="/dashboard">
-            Dashboard
-          </Link>
-        </li>
-        <li>
-          <Link to="/device">
-            Devices
-          </Link>
-        </li>
-        <li>
+
+        {/* <li>
           <Link to="/watertable">
             Water Table
           </Link>
@@ -52,7 +43,7 @@ class Nav extends Component {
           <Link onClick={this.logout} to="/signout">
             Sign Out
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/login">
             Login
@@ -70,4 +61,4 @@ class Nav extends Component {
   }
 }
 
-export default connect(mapStateToProps)(Nav);
+export default connect(mapStateToProps)(LandingPageNav);

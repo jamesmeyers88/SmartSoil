@@ -1,8 +1,8 @@
 // import { USER_ACTIONS } from '../actions/userActions';
 import { WEATHER_ACTIONS } from '../actions/weatherActions';
 import { getTemp } from '../requests/weatherRequests';
-import { put, call, takeLatest } from 'redux-saga/effects';
-import axios from 'axios';
+import { put, takeLatest } from 'redux-saga/effects';
+// import axios from 'axios';
 
 function* fetchTemp() {
   try {

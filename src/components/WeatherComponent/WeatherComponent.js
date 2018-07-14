@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { WEATHER_ACTIONS } from '../../redux/actions/weatherActions';
+// import { WEATHER_ACTIONS } from '../../redux/actions/weatherActions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -14,13 +14,13 @@ class WeatherComponent extends Component {
         // // })
       }
     render() {
-        let modTemp = parseInt(this.props.temp.temp);
+        let modTemp = parseInt(this.props.temp.temp, 10);
 
         return (
             <div>
             {/* <pre>{JSON.stringify(modTemp)}</pre>   */}
                 <p>{modTemp}°F</p>
-                <p>Icon goes here</p>
+                <img src='https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-31-512.png' alt='barf.jpg' />
             </div>
         )
     }

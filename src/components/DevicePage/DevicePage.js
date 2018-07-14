@@ -86,10 +86,10 @@ class DevicePage extends Component {
       console.log(this.state.userEvent);
     } // end deleteEvent
 
-  logout = () => {
-    this.props.dispatch(triggerLogout());
-    // this.props.history.push('home');
-  }
+  // logout = () => {
+  //   this.props.dispatch(triggerLogout());
+  //   // this.props.history.push('home');
+  // }
 
   render() {
     let content = null;
@@ -98,7 +98,7 @@ class DevicePage extends Component {
       content = (
         <div>
           <div>
-          <pre>{JSON.stringify(this.props.devices.device.device)}</pre>
+          {/* <pre>{JSON.stringify(this.props.devices.device.device)}</pre> */}
             <h2>Add another device</h2>
             <form onSubmit={this.submitDevice} id="device_form">
               <input type='text' placeholder="Device ID" onChange={this.handleEvent('device_id')} value={this.state.device.device_id}/>
