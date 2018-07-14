@@ -50,4 +50,22 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+  console.log(`in UPDATE on water.router`, req.params.id);
+  console.log(`in UPDATE on water.router - BODY`, req.body)
+  let id = Number(req.params.id);
+  let date = req.body.date;
+  let water_amount = req.body.water_amount;
+  let queryText = `UPDATE water SET date = '$1', water_amount = '$2'
+  WHERE event_id = $3;`;
+  pool.query(queryText, [date, water_amount, id])
+  .then((result) => {
+    console.log( `error UPDATing water from DB`)
+      res.sendStatus(200);
+  }).catch((error) => {
+      console.log(error);
+      res.sendStatus(500);
+  });
+});
+
 module.exports = router;

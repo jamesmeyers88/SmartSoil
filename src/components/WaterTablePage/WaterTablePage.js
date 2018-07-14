@@ -5,6 +5,7 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { WATER_ACTIONS } from '../../redux/actions/waterActions';
 // import axios from 'axios';
 // import { triggerLogout } from '../../redux/actions/loginActions';
+import SimpleModalWrapped from './WaterTablePageModal'
 
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -14,7 +15,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 // import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
+// import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
 import '../WaterTablePage/WaterTablePage.css';
 
@@ -83,12 +84,12 @@ class WaterTablePage extends Component {
       console.log(this.state.userEvent);
     } // end deleteEvent
 
-    updateEvent = (id) => {
-      // event.preventDefault();
-      console.log(id)
-      this.props.dispatch({ type: WATER_ACTIONS.UPDATE_EVENT, payload: id});
-      console.log(this.state.userEvent);
-    } // end updateEvent
+    // updateEvent = (id) => {
+    //   // event.preventDefault();
+    //   console.log(id)
+    //   this.props.dispatch({ type: WATER_ACTIONS.UPDATE_EVENT, payload: id});
+    //   console.log(this.state.userEvent);
+    // } // end updateEvent
 
   // logout = () => {
   //   this.props.dispatch(triggerLogout());
@@ -102,7 +103,7 @@ class WaterTablePage extends Component {
       content = (
         <div>
           <div>
-            {/* <pre>{JSON.stringify(this.props.events)}</pre> */}
+            <pre>{JSON.stringify(this.props.events.water)}</pre>
             <h3>Add a watering event</h3>
               <form onSubmit={this.submitWater} id="water_form">
                 <input type='text' placeholder='Date (xx/xx/xxxx)' onChange={this.handleEvent('date')} value={this.state.userEvent.date} />
@@ -130,8 +131,10 @@ class WaterTablePage extends Component {
                       <TableRow key={event.event_id}>
                         <TableCell>{event.date}</TableCell>
                         <TableCell>{event.water_amount} oz</TableCell>
-                        <TableCell><Button onClick={() => this.updateEvent(Number(event.event_id))}><EditIcon /></Button></TableCell>
+                        <TableCell><SimpleModalWrapped updateId={event.event_id}/></TableCell>
+                        {/* <TableCell><Button onClick={() => this.updateEvent(Number(event.event_id))}><SimpleModalWrapped /></Button></TableCell> */}
                         <TableCell><Button onClick={() => this.deleteEvent(Number(event.event_id))}><DeleteIcon /></Button></TableCell>
+                        {/* <TableCell><SimpleModalWrapped /></TableCell> */}
                       </TableRow>
                     );
                   })}
