@@ -11,7 +11,7 @@ import { SOIL_ACTIONS } from '../../redux/actions/soilActions'
 import { triggerLogout } from '../../redux/actions/loginActions';
 import WeatherComponent from '../WeatherComponent/WeatherComponent';
 // import LineGraph from './LineGraph'
-import ReactChartkick, { LineChart, ColumnChart } from 'react-chartkick'
+import ReactChartkick, { LineChart, ColumnChart, AreaChart } from 'react-chartkick'
 import Chart from 'chart.js'
 ReactChartkick.addAdapter(Chart)
 
@@ -42,7 +42,7 @@ class DashboardPage extends Component {
       deviceList: [],
       temp: '',
       username: '',
-      graphObject: '',
+      graphObject: {},
     }
   }
   
@@ -66,15 +66,16 @@ class DashboardPage extends Component {
     
     console.log(`this is preGraphData`, preGraphData)
     for(let dataPoint of preGraphData){
-      let newDate = dataPoint.date;
-      let finalDate = newDate.slice(0, 10)
-      console.log(`this is finalDate`, finalDate)
-      graphData[finalDate] = Number(dataPoint.moisture)
+      // let newDate = dataPoint.date;
+      // let finalDate = newDate.slice(0, 10)
+      // console.log(`this is finalDate`, finalDate)
+      graphData[dataPoint.date] = Number(dataPoint.moisture)
     }
-    console.log(graphData);
+    console.log(`this is graphData`, graphData);
     this.setState({
-      graphObject: [...graphData]
+      graphObject: graphData
     })
+    console.log(`this is graphObject`, this.state.graphObject);
   }
   // logout = () => {
     //   this.props.dispatch(triggerLogout());
@@ -124,7 +125,7 @@ class DashboardPage extends Component {
           {/* <p id="moist">Regular soil value {moistness}</p> */}
           { soilMessage }
           <WeatherComponent />
-          <LineChart id="users-chart" width="500px" height="300px" data={this.state.graphObject} />
+          <AreaChart id="users-chart" width="500px" height="300px" data={this.state.graphObject} />
         </div>
       );
     }
