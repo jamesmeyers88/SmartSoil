@@ -7,20 +7,14 @@
     border-radius: 2px;
 }
 
-/* #update_form {
-    background-color: rgb(84, 146, 201);
-    width: auto;
-    height: 30px;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 2px;
-} */
-/* 
-#paper {
-    width: 70%;
+
+Paper {
+    width: 80%;
     overflow: auto;
+
 }
 
-#table {
-    width: 70%;
-} */
+Table {
+    width: 80%;
+
+}

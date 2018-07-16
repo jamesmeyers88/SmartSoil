@@ -4,7 +4,7 @@ import login from './loginReducer';
 import water from './waterReducer';
 import device from './deviceReducer';
 import weather from './weatherReducer';
-import soil from './soilReducer';
+import soilData from './soilReducer';
 
 const store = combineReducers({
   user,
@@ -12,7 +12,7 @@ const store = combineReducers({
   water,
   device,
   weather,
-  soil,
+  soilData,
 });
 
 export default store;

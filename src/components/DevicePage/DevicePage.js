@@ -108,8 +108,8 @@ class DevicePage extends Component {
             </form>
           </div>
           <div>
-            <Paper>
-                <Table>
+            <Paper id="paper">
+                <Table id="table">
                   <TableHead>
                     <TableRow>
                       <TableCell>Device ID</TableCell>

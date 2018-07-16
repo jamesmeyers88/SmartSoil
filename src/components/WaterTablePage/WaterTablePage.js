@@ -84,13 +84,6 @@ class WaterTablePage extends Component {
       console.log(this.state.userEvent);
     } // end deleteEvent
 
-    // updateEvent = (id) => {
-    //   // event.preventDefault();
-    //   console.log(id)
-    //   this.props.dispatch({ type: WATER_ACTIONS.UPDATE_EVENT, payload: id});
-    //   console.log(this.state.userEvent);
-    // } // end updateEvent
-
   // logout = () => {
   //   this.props.dispatch(triggerLogout());
   //   // this.props.history.push('home');
