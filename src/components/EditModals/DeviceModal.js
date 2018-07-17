@@ -95,7 +95,7 @@ class SimpleModal extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-          <pre>{JSON.stringify(this.props.updateId)}</pre>
+          {/* <pre>{JSON.stringify(this.props.updateId)}</pre> */}
             <Typography variant="title" id="modal-title">
               Edit your water event:
             </Typography>

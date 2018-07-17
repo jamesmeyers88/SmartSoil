@@ -5,7 +5,7 @@ import Nav from '../../components/Nav/Nav';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { DEVICE_ACTIONS } from '../../redux/actions/deviceActions';
-import { triggerLogout } from '../../redux/actions/loginActions';
+// import { triggerLogout } from '../../redux/actions/loginActions';
 import SimpleModalWrapped from '../EditModals/DeviceModal';
 // import axios from 'axios';
 
@@ -85,11 +85,6 @@ class DevicePage extends Component {
       this.props.dispatch({ type: DEVICE_ACTIONS.DELETE_DEVICE, payload: id});
       console.log(this.state.userEvent);
     } // end deleteEvent
-
-  // logout = () => {
-  //   this.props.dispatch(triggerLogout());
-  //   // this.props.history.push('home');
-  // }
 
   render() {
     let content = null;

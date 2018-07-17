@@ -84,10 +84,6 @@ class WaterTablePage extends Component {
       console.log(this.state.userEvent);
     } // end deleteEvent
 
-  // logout = () => {
-  //   this.props.dispatch(triggerLogout());
-  //   // this.props.history.push('home');
-  // }
 
   render() {
     let content = null;

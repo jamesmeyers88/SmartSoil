@@ -10,10 +10,6 @@ const mapStateToProps = state => ({
     soilData: state.soilData,
   });
 
-// let data = this.props.moisture;
-
-// console.log(data);
-
 class LineGraph extends Component {
     
     componentDidMount() {
