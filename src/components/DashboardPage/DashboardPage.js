@@ -38,6 +38,7 @@ class DashboardPage extends Component {
     this.props.dispatch({ type: SOIL_ACTIONS.FETCH_SOIL });
     await new Promise(resolve => {setTimeout(resolve, 1000)})
     this.loopData();
+    console.log(this.props.soilData.soilData)
   }// end componentDidMount
   
   componentDidUpdate() {
@@ -66,40 +67,42 @@ class DashboardPage extends Component {
   render() {
       let content = null;
       let soilMessage = null;
+      // let moisture = this.props.soilData.soilData[0].moisture
       // let moistness = this.props.soilData.soil
       // let moistNegative = -(this.props.soilData.soil)
       // let soilEvents = this.props.soilData.soilData
       
       // Show soilMessage
-      if (this.props.soilData.soilData.moisture < 4000){
-        soilMessage = (
-          <div>
-            {/* <pre>{console.log(`this is soilData2`, this.props.soilData.soilData)}</pre> */}
-            <p>
-              You are successfully moist.
-            </p>
-          </div>
-      );//end moist
-      } else {
-        soilMessage = (
-          <div>
-            <p>
-              You should seriously think about watering.
-            </p>
-          </div>
-      );//end dry
-      } //end 'soilMessage' logic
 
-      if (this.props.user.userName) {
+
+      if (this.props.user.userName && this.props.soilData.soilData[0]) {
+
+        if (this.props.soilData.soilData[0].moisture < 4000){
+          soilMessage = (
+            <div>
+              {/* <pre>{JSON.stringify(this.props.soilData.soilData)}</pre> */}
+              <p>
+                You are successfully moist. You don't need to water.
+              </p>
+            </div>
+        );//end moist
+        } else {
+          soilMessage = (
+            <div>
+              <p>
+                You should seriously think about watering.
+              </p>
+            </div>
+        );//end dry
+        } //end 'soilMessage' logic
         content = (
           <div>
             <h1
-              id="welcome"
-            >
+              id="welcome">
               Welcome, { this.props.user.userName }!
             </h1>
-            <pre>{JSON.stringify(this.props.soilData.soilData[0])}</pre>
-            <p></p>
+            {/* <pre>{JSON.stringify(this.props.soilData.soilData[0].moisture)}</pre> */}
+            {/* <p>{this.props.soilData.soilData[0].moisture}</p> */}
             {/* <p id="moist">Negative value for graphing: {moistNegative}</p> */}
             {/* <p id="moist">Regular soil value {moistness}</p> */}
             { soilMessage }

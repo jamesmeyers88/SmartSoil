@@ -10,13 +10,13 @@ import { WATER_ACTIONS } from '../../redux/actions/waterActions'
 import '../../styles/WaterModal.css';
 import { connect } from 'react-redux';
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
+// function rand() {
+//   return Math.round(Math.random() * 20) - 10;
+// }
 
 function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+  const top = 50
+  const left = 50
 
   return {
     top: `${top}%`,
@@ -51,27 +51,24 @@ class SimpleModal extends React.Component {
 
   handleOpen = (id) => {
     this.setState({ open: true });
-    // this.updateEvent(id);
   };
-
+  
   handleClose = () => {
     this.setState({ open: false });
   };
 
   updateEvent = (id) => {
     // event.preventDefault();
-    // console.log(id)
     let toUpdate = {
       event_id: id,
       userEvent: this.state.userEvent
     }
     this.props.dispatch({ type: WATER_ACTIONS.UPDATE_EVENT, payload: toUpdate});
-    // console.log(this.state.userEvent);
+    this.handleClose();
   } // end updateEvent
 
   handleEvent = (key) => (event) => {
-    // console.log(this.props.user.userName)
-    this.setState({
+      this.setState({
         userEvent: {
             ...this.state.userEvent,
             [key]: event.target.value,
@@ -101,7 +98,7 @@ class SimpleModal extends React.Component {
             {/* <Typography variant="subheading" id="simple-modal-description">
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
             </Typography> */}
-            <form id="update_form" onSubmit={()=>this.updateEvent(this.props.updateId)}>
+            <form id="update_form" onSubmit={()=>{this.updateEvent(this.props.updateId)} }>
               <input type='text' placeholder="Date (xx/xx/xxxx)" onChange={this.handleEvent('date')} 
               value={this.state.userEvent.date} />
               <input type='text' placeholder='Amount (in oz)' onChange={this.handleEvent('water_amount')} 

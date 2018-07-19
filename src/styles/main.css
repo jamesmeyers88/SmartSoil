@@ -82,3 +82,7 @@ li a:hover {
     text-decoration: underline;
     color: #eee;
 }
+
+.icon {
+    width: 30px
+}

@@ -10,13 +10,9 @@ import { DEVICE_ACTIONS } from '../../redux/actions/deviceActions'
 import '../../styles/WaterModal.css';
 import { connect } from 'react-redux';
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
 function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+  const top = 50;
+  const left = 50;
 
   return {
     top: `${top}%`,
@@ -60,14 +56,12 @@ class SimpleModal extends React.Component {
   };
 
   updateDevice = (id) => {
-    // event.preventDefault();
-    // console.log(id)
     let toUpdate = {
       device_id: id,
       device: this.state.device
     }
     this.props.dispatch({ type: DEVICE_ACTIONS.UPDATE_DEVICE, payload: toUpdate});
-    // console.log(this.state.userEvent);
+    this.handleClose;
   } // end updateEvent
 
   handleEvent = (key) => (event) => {

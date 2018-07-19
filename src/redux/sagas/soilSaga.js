@@ -16,20 +16,16 @@ function* fetchSoil() {
       type: SOIL_ACTIONS.SOIL_DATA,
       payload: soilData,
     })
-    // yield put({
-    //   type: SOIL_ACTIONS.SHOW_MOISTURE,
-    //   payload: soilData,
-    // });
   } catch (error) {
     console.log('error in soil SAGA fetch', error)
   }
 }
 
-function* waterSaga() {
+function* soilSaga() {
     yield takeLatest(SOIL_ACTIONS.FETCH_SOIL, fetchSoil);
     // yield takeLatest(WATER_ACTIONS.SEND_EVENT, sendEvent);
     // yield takeLatest(WATER_ACTIONS.DELETE_EVENT, deleteEvent);
     // yield takeLatest(WATER_ACTIONS.UPDATE_EVENT, updateEvent)
   }
   
-  export default waterSaga;
+  export default soilSaga;

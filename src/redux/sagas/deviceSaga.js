@@ -50,6 +50,7 @@ function* updateDevice(action){
   try{
     console.log(`in UPDATE device on SAGA`, action.payload)
     yield call(axios.put, `/api/device/${action.payload.device_id}`, action.payload)
+    yield put({ type: DEVICE_ACTIONS.FETCH_DEVICES })
   } catch (error){
     console.log('error in device SAGA DELETE', error)
   } 

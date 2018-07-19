@@ -2,22 +2,19 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
+//GET for soilMoisture readings stored in DB
 router.get('/', (req, res) => {
     let queryText = `SELECT date, moisture FROM soil ORDER BY event_id DESC;`;
     pool.query(queryText)
       .then((result) => {
-        console.log(`received soil events from DB`);
+        console.log(`received soil events from DB`, result.rows);
         res.send(result.rows);
       })
       .catch((error) => {
         console.log(`Error handling GET on soil.router`, error);
         res.sendStatus(500);
       })
-    // res.sendStatus(200); // For testing only, can be removed
-});
+});// end soilMoisture GET
 
 /**
  * POST route template

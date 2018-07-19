@@ -50,6 +50,7 @@ function* updateEvent(action){
   try{
     console.log(`in UPDATE event on SAGA`, action.payload)
     yield call(axios.put, `/api/water/${action.payload.event_id}`, action.payload)
+    yield put({ type: WATER_ACTIONS.FETCH_EVENTS })
   } catch (error){
     console.log('error in water SAGA DELETE', error)
   } 
