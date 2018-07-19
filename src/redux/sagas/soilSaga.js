@@ -10,8 +10,7 @@ function* fetchSoil() {
     let soilData = yield getSoil();
     // let moisture = soilData[0].moisture
     // console.log(`in soil SAGA`, soilData[0].moisture);
-
-    console.log('in soil saga for all data', soilData)
+    // console.log('in soil saga for all data', soilData)
     yield put({
       type: SOIL_ACTIONS.SOIL_DATA,
       payload: soilData,

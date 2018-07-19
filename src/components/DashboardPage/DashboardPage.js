@@ -6,13 +6,14 @@ import Nav from '../../components/Nav/Nav';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { WEATHER_ACTIONS } from '../../redux/actions/weatherActions';
-import { SOIL_ACTIONS } from '../../redux/actions/soilActions'
+import { SOIL_ACTIONS } from '../../redux/actions/soilActions';
+import Graph from './LineGraph';
 
 // import { triggerLogout } from '../../redux/actions/loginActions';
 import WeatherComponent from '../WeatherComponent/WeatherComponent';
-import ReactChartkick, { AreaChart } from 'react-chartkick'
-import Chart from 'chart.js'
-ReactChartkick.addAdapter(Chart)
+// import ReactChartkick, { AreaChart } from 'react-chartkick'
+// import Chart from 'chart.js'
+// ReactChartkick.addAdapter(Chart)
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -36,9 +37,8 @@ class DashboardPage extends Component {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.props.dispatch({ type: WEATHER_ACTIONS.FETCH_TEMP });
     this.props.dispatch({ type: SOIL_ACTIONS.FETCH_SOIL });
-    await new Promise(resolve => {setTimeout(resolve, 1000)})
-    this.loopData();
-    console.log(this.props.soilData.soilData)
+    // await new Promise(resolve => {setTimeout(resolve, 1000)})
+    // this.loopData();
   }// end componentDidMount
   
   componentDidUpdate() {
@@ -46,24 +46,7 @@ class DashboardPage extends Component {
       this.props.history.push('home');
     }
   }// end componentDidUpdate
-  
-  // Function loops through soil moisure data from DB to
-  // create a useable dataset to be graphed
-  loopData(){
-    let graphData = {};
-    let preGraphData = this.props.soilData.soilData;
-    console.log(`this is preGraphData`, preGraphData)
-    for(let dataPoint of preGraphData){
-      graphData[dataPoint.date] = Number(dataPoint.moisture)
-    }
-    console.log(`this is graphData`, graphData);
-    this.setState({
-      graphObject: graphData
-    })
-    console.log(`this is graphObject`, this.state.graphObject);
-  }// end loop data
-
-    
+   
   render() {
       let content = null;
       let soilMessage = null;
@@ -73,8 +56,6 @@ class DashboardPage extends Component {
       // let soilEvents = this.props.soilData.soilData
       
       // Show soilMessage
-
-
       if (this.props.user.userName && this.props.soilData.soilData[0]) {
 
         if (this.props.soilData.soilData[0].moisture < 4000){
@@ -85,7 +66,7 @@ class DashboardPage extends Component {
                 You are successfully moist. You don't need to water.
               </p>
             </div>
-        );//end moist
+          );//end moist message
         } else {
           soilMessage = (
             <div>
@@ -93,24 +74,21 @@ class DashboardPage extends Component {
                 You should seriously think about watering.
               </p>
             </div>
-        );//end dry
+          );//end dry message
         } //end 'soilMessage' logic
+
+        // the content to be rendered on userName/soilData load
         content = (
           <div>
-            <h1
-              id="welcome">
+            <h1 id="welcome">
               Welcome, { this.props.user.userName }!
             </h1>
-            {/* <pre>{JSON.stringify(this.props.soilData.soilData[0].moisture)}</pre> */}
-            {/* <p>{this.props.soilData.soilData[0].moisture}</p> */}
-            {/* <p id="moist">Negative value for graphing: {moistNegative}</p> */}
-            {/* <p id="moist">Regular soil value {moistness}</p> */}
             { soilMessage }
             <WeatherComponent />
-            <AreaChart id="users-chart" width="500px" height="300px" data={this.state.graphObject} />
+            <Graph />
           </div>
         );
-      }// end conditional render on auth
+      }// end conditional render on auth/soilData load
 
     return (
       <div>

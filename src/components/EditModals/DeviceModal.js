@@ -48,12 +48,11 @@ class SimpleModal extends React.Component {
 
   handleOpen = (id) => {
     this.setState({ open: true });
-    // this.updateEvent(id);
-  };
+  }; // end handleOpen
 
   handleClose = () => {
     this.setState({ open: false });
-  };
+  }; // end handleClose
 
   updateDevice = (id) => {
     let toUpdate = {
@@ -65,7 +64,6 @@ class SimpleModal extends React.Component {
   } // end updateEvent
 
   handleEvent = (key) => (event) => {
-    // console.log(this.props.user.userName)
     this.setState({
         device: {
             ...this.state.device,

@@ -10,10 +10,6 @@ import { WATER_ACTIONS } from '../../redux/actions/waterActions'
 import '../../styles/WaterModal.css';
 import { connect } from 'react-redux';
 
-// function rand() {
-//   return Math.round(Math.random() * 20) - 10;
-// }
-
 function getModalStyle() {
   const top = 50
   const left = 50
@@ -49,6 +45,7 @@ class SimpleModal extends React.Component {
     }
   };
 
+
   handleOpen = (id) => {
     this.setState({ open: true });
   };
@@ -57,8 +54,8 @@ class SimpleModal extends React.Component {
     this.setState({ open: false });
   };
 
+  // updates the water DB
   updateEvent = (id) => {
-    // event.preventDefault();
     let toUpdate = {
       event_id: id,
       userEvent: this.state.userEvent
@@ -67,6 +64,7 @@ class SimpleModal extends React.Component {
     this.handleClose();
   } // end updateEvent
 
+  // handles change of inputs
   handleEvent = (key) => (event) => {
       this.setState({
         userEvent: {

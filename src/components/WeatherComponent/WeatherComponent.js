@@ -15,10 +15,10 @@ class WeatherComponent extends Component {
         let weatherContent = null;
 
         // if weather data has arrived from API
-        // the following will render.
+        // the following will render:
         if (this.props.weather) {
-        // Switch statement to choose icon image URL
-        switch (icon){
+            // Switch statement to choose icon image URL
+            switch (icon){
             // clear skies icon
             case '01d':
             case '01n':
@@ -65,8 +65,8 @@ class WeatherComponent extends Component {
                 // link is a sunglasses icon...just for fun.
                 imgSrc = (<div><p>Hey! It's {modTemp}</p><img id="icon" src="https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-15-512.png" /></div>);
                 break;
-        }// end icon switch
-    }
+            }// end icon switch
+        }
 
         return (
             <div>

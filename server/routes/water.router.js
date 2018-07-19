@@ -2,9 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-/**
- * GET route template
- */
+// GET from water table
 router.get('/', (req, res) => {
     let queryText = `SELECT * FROM water ORDER BY event_id DESC;`;
     pool.query(queryText)
@@ -16,12 +14,9 @@ router.get('/', (req, res) => {
         console.log(`Error handling GET on water.router`, error);
         res.sendStatus(500);
       })
-    // res.sendStatus(200); // For testing only, can be removed
-});
+}); // end GET 
 
-/**
- * POST route template
- */
+// POST for water table
 router.post('/', (req, res) => {
   let queryText = `INSERT INTO water (username, date, water_amount)
   VALUES ($1, $2, $3);`
@@ -34,8 +29,9 @@ router.post('/', (req, res) => {
     console.log(`Error handling POST on water.router`, error);
     res.sendStatus(500);
   })
-});
+}); // end POST
 
+// DELETE for water table
 router.delete('/:id', (req, res) => {
     console.log(`in DELETE on water.router`, req.params.id)
     const id = Number(req.params.id);
@@ -47,8 +43,9 @@ router.delete('/:id', (req, res) => {
       console.log( `error DELETing water from DB`, error)
         res.sendStatus(500);
     });
-});
+}); // end DELETE
 
+// PUT for water table
 router.put('/:id', (req, res) => {
   console.log(`in UPDATE on water.router`, req.params.id);
   console.log(`in UPDATE on water.router - BODY`, req.body)
@@ -65,6 +62,6 @@ router.put('/:id', (req, res) => {
       console.log(error);
       res.sendStatus(500);
   });
-});
+}); // end PUT
 
 module.exports = router;
