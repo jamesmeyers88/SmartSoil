@@ -7,7 +7,11 @@ import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { WEATHER_ACTIONS } from '../../redux/actions/weatherActions';
 import { SOIL_ACTIONS } from '../../redux/actions/soilActions';
+// import { WATER_ACTIONS } from '../../redux/actions/waterActions';
 import Graph from './LineGraph';
+import Paper from '@material-ui/core/Paper';
+
+import '../../styles/DashboardPage.css'
 
 // import { triggerLogout } from '../../redux/actions/loginActions';
 import WeatherComponent from '../WeatherComponent/WeatherComponent';
@@ -19,6 +23,7 @@ const mapStateToProps = state => ({
   user: state.user,
   temp: state.temp,
   soilData: state.soilData,
+  water: state.events,
 });
 class DashboardPage extends Component {
   
@@ -37,7 +42,9 @@ class DashboardPage extends Component {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.props.dispatch({ type: WEATHER_ACTIONS.FETCH_TEMP });
     this.props.dispatch({ type: SOIL_ACTIONS.FETCH_SOIL });
+    // this.props.dispatch({ type: WATER_ACTIONS.FETCH_EVENTS});
     // await new Promise(resolve => {setTimeout(resolve, 1000)})
+    // console.log('this is the water events', this.props.water)
     // this.loopData();
   }// end componentDidMount
   
@@ -60,12 +67,12 @@ class DashboardPage extends Component {
 
         if (this.props.soilData.soilData[0].moisture < 4000){
           soilMessage = (
-            <div>
+            <Paper className="message" >
               {/* <pre>{JSON.stringify(this.props.soilData.soilData)}</pre> */}
-              <p>
-                You are successfully moist. You don't need to water.
-              </p>
-            </div>
+              <p>You are successfully moist.</p>
+              {/* <pre>{JSON.stringify(this.props.water)}</pre> */}
+              <p>You don't need to water.</p>
+            </Paper>
           );//end moist message
         } else {
           soilMessage = (
@@ -79,13 +86,20 @@ class DashboardPage extends Component {
 
         // the content to be rendered on userName/soilData load
         content = (
-          <div>
+          <div className="container">
             <h1 id="welcome">
               Welcome, { this.props.user.userName }!
             </h1>
             { soilMessage }
-            <WeatherComponent />
-            <Graph />
+            <div className="cell">
+              <Paper >
+                <WeatherComponent className="weatherComponent"/>
+              </Paper>
+            </div>
+            <div className="cell">
+              <h3>Soil Moisture History</h3>
+              <Graph />
+            </div>
           </div>
         );
       }// end conditional render on auth/soilData load

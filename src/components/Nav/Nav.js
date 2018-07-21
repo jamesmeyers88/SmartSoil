@@ -49,11 +49,11 @@ class Nav extends Component {
           </Link>
         </li>
         <li >
-          <Link onClick={this.logout} to="/signout">
+          <Link onClick={this.logout} to="/home">
             Sign Out
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/login">
             Login
           </Link>
@@ -62,7 +62,7 @@ class Nav extends Component {
           <Link to="/register">
             Register
           </Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   </div>

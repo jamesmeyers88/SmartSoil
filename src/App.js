@@ -22,7 +22,7 @@ import './styles/main.css';
 
 const App = () => (
   <div>
-    <Header title="smartYard" />
+    <Header title="SmartSoil" />
     <Router>
       <Switch>
         <Redirect exact from="/" to="/home" />

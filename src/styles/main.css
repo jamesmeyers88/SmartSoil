@@ -83,6 +83,12 @@ li a:hover {
     color: #eee;
 }
 
-.icon {
-    width: 30px
+.container {
+    display: grid;
+}
+
+.chartPaper {
+    width: 500px;
+    height: auto;
+    float: left;
 }

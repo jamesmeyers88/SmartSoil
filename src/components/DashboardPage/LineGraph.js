@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SOIL_ACTIONS } from '../../redux/actions/soilActions';
-import ReactChartkick, { AreaChart } from 'react-chartkick'
+import { WATER_ACTIONS } from '../../redux/actions/waterActions';
+import ReactChartkick, { LineChart } from 'react-chartkick'
 import Chart from 'chart.js'
+import Paper from '@material-ui/core/Paper';
 ReactChartkick.addAdapter(Chart)
+
 
 const mapStateToProps = state => ({
     user: state.user,
     temp: state.temp,
     soilData: state.soilData,
+    water: state.water,
   });
 
 class Graph extends Component {
@@ -25,6 +29,8 @@ class Graph extends Component {
     
     async componentDidMount() {
         this.props.dispatch({ type: SOIL_ACTIONS.FETCH_SOIL });
+        this.props.dispatch({ type: WATER_ACTIONS.FETCH_EVENTS })
+        // console.log('this is water', this.props``)
         await this.loopData();
     } // end componentDidMount
 
@@ -36,7 +42,7 @@ class Graph extends Component {
         // console.log(`this is preGraphData`, preGraphData)
 
         for(let dataPoint of preGraphData){
-        graphData[dataPoint.date] = Number(dataPoint.moisture)}
+        graphData[dataPoint.date] = -Number(dataPoint.moisture)}
         // console.log(`this is graphData`, graphData);
 
         this.setState({
@@ -47,9 +53,9 @@ class Graph extends Component {
 
     render(){
         return(
-            <div>
-                <AreaChart id="users-chart" width="500px" height="300px" data={this.state.graphObject} />
-            </div>
+            <Paper className="chartPaper">
+                <LineChart id="users-chart" width="500px" height="300px" data={this.state.graphObject} download={ true }/>
+            </Paper>
         )
     };
 }

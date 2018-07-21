@@ -97,7 +97,7 @@ class SimpleModal extends React.Component {
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
             </Typography> */}
             <form id="update_form" onSubmit={()=>{this.updateEvent(this.props.updateId)} }>
-              <input type='text' placeholder="Date (xx/xx/xxxx)" onChange={this.handleEvent('date')} 
+              <input type='date' placeholder="Date (xx/xx/xxxx)" onChange={this.handleEvent('date')} 
               value={this.state.userEvent.date} />
               <input type='text' placeholder='Amount (in oz)' onChange={this.handleEvent('water_amount')} 
               value={this.state.userEvent.water_amount} />

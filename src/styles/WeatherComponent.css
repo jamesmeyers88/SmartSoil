@@ -1,0 +1,24 @@
+.container{
+    display: grid;
+    grid-template-columns: 66%, 33%;
+    grid-auto-rows:minmax(100px, auto);
+}
+
+.weatherImage {
+    padding: 10px;
+}
+
+.icon {
+    width: 80px;
+}
+
+/* .weatherThing {
+    display: inline;
+    background-color: aqua;
+
+}
+
+.weatherChild{
+    display: inline-block;
+    float: left;
+} */

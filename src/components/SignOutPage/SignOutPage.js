@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Nav from '../Nav/Nav';
-
-
-
 
 class SignOutPage extends Component {
   constructor(props) {
@@ -33,7 +29,41 @@ class SignOutPage extends Component {
 
       <div>
         {/* I should probably make a dedicated signOutNav component */}
-        <Nav />
+        {/* <Nav /> */}
+        <div className="navbar">
+    <div>
+      <ul>
+        {/* <li>
+          <Link to="/user">
+            User Home
+          </Link>
+        </li> */}
+        {/* <li>
+          <Link to="/info">
+            Info Page
+          </Link>
+        </li> */}
+        <li>
+          <Link to="/home">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/login">
+            Login
+          </Link>
+        </li>
+        <li>
+          <Link to="/register">
+            Register
+          </Link>
+        </li>
+      </ul>
+    </div>
+  </div>
+        <div>
+          <p>Check back soon!</p>
+        </div>
       </div>
     );
   }
