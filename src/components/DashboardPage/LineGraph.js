@@ -53,9 +53,7 @@ class Graph extends Component {
 
     render(){
         return(
-            <Paper className="chartPaper">
-                <LineChart id="users-chart" width="500px" height="300px" data={this.state.graphObject} download={ true }/>
-            </Paper>
+            <LineChart id="users-chart" width="500px" height="300px" data={this.state.graphObject} download={ true }/>
         )
     };
 }

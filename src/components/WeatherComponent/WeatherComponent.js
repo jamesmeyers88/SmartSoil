@@ -24,24 +24,24 @@ class WeatherComponent extends Component {
             // clear skies icon
             case '01d':
             case '01n':
-                imgSrc = (<Paper className="container"><p>Hey! It's {modTemp}˚F</p><img  className="icon" src="https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-01-512.png" alt="clear" /></Paper>)
+                imgSrc = (<div className="container"><p className="item">Hey! It's {modTemp}˚F</p><img  className="icon"  src="https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-01-512.png" alt="clear" /></div>)
                 return imgSrc;
             // few clouds icon   
             case '02d':
             case '02n':
-                imgSrc = (<Paper className="weatherImage"><p>Hey! It's {modTemp}˚F</p><img className="icon" src="https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-17-512.png" alt="few clouds" /></Paper>)
+                imgSrc = (<div className="weatherImage"><p>Hey! It's {modTemp}˚F</p><img className="icon" src="https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-17-512.png" alt="few clouds" /></div>)
                 return imgSrc;
             // scattered and broken clouds icon
             case '03d':
             case '03n':
             case '04d':
             case '04n':
-                imgSrc = (<Paper className="weatherImage"><p>Hey! It's {modTemp}˚F</p><img className="icon" src="https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-16-512.png" alt="scattered clouds" /></Paper>)
+                imgSrc = (<div className="weatherImage"><p>Hey! It's {modTemp}˚F</p><img className="icon" src="https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-16-512.png" alt="scattered clouds" /></div>)
                 return imgSrc;
             // rain shower icon
             case '09d':
             case '09n':
-                imgSrc = (<Paper><p>Hey! It's {modTemp}˚F</p><img className="icon" src="https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-19-512.png" alt="rain shower" /></Paper>)
+                imgSrc = (<div><p>Hey! It's {modTemp}˚F</p><img className="icon" src="https://cdn0.iconfinder.com/data/icons/good-weather-1/96/weather_icons-19-512.png" alt="rain shower" /></div>)
                 return imgSrc;
             // rain icon
             case '10d':

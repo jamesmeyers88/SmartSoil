@@ -1,17 +1,14 @@
 .container {
     background-color: rgba(	141, 97, 66, 0.50);
     display: grid;
-    grid-template-columns: 66%, 33%;
-    grid-auto-rows:minmax(100px, auto);
+    grid-template-columns: 500px, auto, 200px;
+    grid-template-rows: 500px, 200px;
+    grid-gap: 20px;
+    /* grid-auto-rows: 00px; */
 }
 
 .weather {
     width: 100px;
-}
-
-.weatherComponent {
-    align-content: center
-    
 }
 
 .message {

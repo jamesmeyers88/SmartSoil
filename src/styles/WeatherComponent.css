@@ -1,8 +1,8 @@
-.container{
+/* .container{
     display: grid;
-    grid-template-columns: 66%, 33%;
-    grid-auto-rows:minmax(100px, auto);
-}
+    grid-template-columns: 100px, 100px, auto;
+    grid-auto-rows: 10px, auto;
+} */
 
 .weatherImage {
     padding: 10px;
