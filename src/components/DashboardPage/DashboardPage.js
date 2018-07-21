@@ -76,7 +76,7 @@ class DashboardPage extends Component {
           );//end moist message
         } else {
           soilMessage = (
-            <div className="item">
+            <div>
               <p>
                 You should seriously think about watering.
               </p>
@@ -87,18 +87,18 @@ class DashboardPage extends Component {
         // the content to be rendered on userName/soilData load
         content = (
           <div className="container">
-            <div className="item">
-            <h1 id="welcome">
-              Welcome, { this.props.user.userName }!
-            </h1>
+            <div className="item-a">
+              <h1 id="welcome">
+                Welcome, { this.props.user.userName }!
+              </h1>
             </div>
-            <Paper>
+            <Paper className="item">
             { soilMessage }
             </Paper>
-            <Paper className="item">
+            <Paper className="item-c">
                 <WeatherComponent className="weatherComponent"/>
             </Paper>
-            <Paper className="item">
+            <Paper className="item-d">
               <h3>Soil Moisture History</h3>
               <Graph />
             </Paper>

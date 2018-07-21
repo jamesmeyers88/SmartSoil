@@ -17,7 +17,8 @@ import Paper from '@material-ui/core/Paper';
 import DeleteIcon from '@material-ui/icons/Delete';
 // import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
-import '../../styles/WaterTablePage.css'
+import '../../styles/WaterTablePage.css';
+// import swal from 'sweetalert';
 
 
 const mapStateToProps = state => ({
@@ -43,6 +44,7 @@ class WaterTablePage extends Component {
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.props.dispatch({ type: WATER_ACTIONS.FETCH_EVENTS });
+    console.log(`this is your water data`, this.props.events)
     
   }
 
@@ -84,6 +86,7 @@ class WaterTablePage extends Component {
       console.log(this.state.userEvent);
     } // end deleteEvent
 
+    
 
   render() {
     let content = null;

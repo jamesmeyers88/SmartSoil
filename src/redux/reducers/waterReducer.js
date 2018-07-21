@@ -8,7 +8,7 @@ const events = (state = [], action) => {
         return state;
     case WATER_ACTIONS.SHOW_EVENTS:
         // console.log('in waterREducer-SHOW_EVENTS', state)
-        return state
+        return action.payload
     default:
       return state;
   }
