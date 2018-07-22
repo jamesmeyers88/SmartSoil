@@ -67,19 +67,17 @@ class DashboardPage extends Component {
 
         if (this.props.soilData.soilData[0].moisture < 4000){
           soilMessage = (
-            <div>
-              {/* <pre>{JSON.stringify(this.props.soilData.soilData)}</pre> */}
-              <p>You are successfully moist.</p>
-              {/* <pre>{JSON.stringify(this.props.water)}</pre> */}
-              <p>You don't need to water.</p>
+            <div className="moist">
+              <p className="moist">You are successfully moist.</p>
+              <img className="moist"src="https://static.thenounproject.com/png/823280-200.png" />
+              <p className="moist">You don't need to water.</p>
             </div>
           );//end moist message
         } else {
           soilMessage = (
             <div>
-              <p>
-                You should seriously think about watering.
-              </p>
+              <p>You should seriously think about watering.</p>
+              <img src="https://static.thenounproject.com/png/372939-200.png" />
             </div>
           );//end dry message
         } //end 'soilMessage' logic
@@ -87,18 +85,18 @@ class DashboardPage extends Component {
         // the content to be rendered on userName/soilData load
         content = (
           <div className="container">
-            <div className="item-a">
-              <h1 id="welcome">
+            <div >
+              {/* <h1 className="item welcome" id="welcome">
                 Welcome, { this.props.user.userName }!
-              </h1>
+              </h1> */}
             </div>
-            <Paper className="item">
-            { soilMessage }
+            <Paper className="item message">
+              { soilMessage }
             </Paper>
-            <Paper className="item-c">
+            <Paper className="item weather">
                 <WeatherComponent className="weatherComponent"/>
             </Paper>
-            <Paper className="item-d">
+            <Paper className="item graph">
               <h3>Soil Moisture History</h3>
               <Graph />
             </Paper>
@@ -107,7 +105,7 @@ class DashboardPage extends Component {
       }// end conditional render on auth/soilData load
 
     return (
-      <div>
+      <div className="soilDiv">
         <Nav />
         { content }
       </div>

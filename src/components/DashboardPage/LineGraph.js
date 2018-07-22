@@ -53,7 +53,7 @@ class Graph extends Component {
 
     render(){
         return(
-            <LineChart id="users-chart" width="500px" height="300px" data={this.state.graphObject} download={ true }/>
+            <LineChart id="users-chart" width="500px" height="300px" data={this.state.graphObject} xtitle="Date" ytitle="Soil moisture (exp. as negative)" download={ true }/>
         )
     };
 }

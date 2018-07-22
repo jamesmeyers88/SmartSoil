@@ -20,42 +20,13 @@ class LandingPageNav extends Component {
   render() {
 
     return (
-  <div className="navbar">
-    <div>
-      <ul>
-        {/* <li>
-          <Link to="/user">
-            User Home
-          </Link>
-        </li> */}
-        {/* <li>
-          <Link to="/info">
-            Info Page
-          </Link>
-        </li> */}
-
-        {/* <li>
-          <Link to="/watertable">
-            Water Table
-          </Link>
-        </li>
-        <li >
-          <Link onClick={this.logout} to="/signout">
-            Sign Out
-          </Link>
-        </li> */}
-        <li>
-          <Link to="/login">
+  <div className=" container navbar">
+          <Link to="/login" className="navItem">
             Login
           </Link>
-        </li>
-        <li>
-          <Link to="/register">
+          <Link className="navItem" to="/register">
             Register
           </Link>
-        </li>
-      </ul>
-    </div>
   </div>
     );
   }

@@ -15,6 +15,7 @@ Paper {
 }
 
 Table {
-    width: 80%;
+    width: inherit;
+
 
 }

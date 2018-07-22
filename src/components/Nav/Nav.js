@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import '../../styles/Nav.css'
 
 
 import { triggerLogout } from '../../redux/actions/loginActions';
@@ -20,51 +21,32 @@ class Nav extends Component {
   render() {
 
     return (
-  <div className="navbar">
-    <div>
-      <ul>
-        {/* <li>
-          <Link to="/user">
-            User Home
-          </Link>
-        </li> */}
-        {/* <li>
-          <Link to="/info">
-            Info Page
-          </Link>
-        </li> */}
-        <li>
+  <div className="container navbar">
+        <div className="navItem">
           <Link to="/dashboard">
             Dashboard
           </Link>
-        </li>
-        <li>
+        </div>
+        <div className="navItem">
           <Link to="/device">
             Devices
           </Link>
-        </li>
-        <li>
+        </div>
+        <div className="navItem">
           <Link to="/watertable">
             Water Table
           </Link>
-        </li>
-        <li >
+        </div>
+        <div className="navItem" >
           <Link onClick={this.logout} to="/home">
             Sign Out
           </Link>
-        </li>
-        {/* <li>
-          <Link to="/login">
-            Login
-          </Link>
-        </li>
-        <li>
-          <Link to="/register">
-            Register
-          </Link>
-        </li> */}
-      </ul>
-    </div>
+        </div>
+        <div >
+          <h1 className="navItem welcome" id="welcome">
+            Welcome, { this.props.user.userName }!
+          </h1>
+        </div>
   </div>
     );
   }

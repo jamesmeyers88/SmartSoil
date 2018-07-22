@@ -93,7 +93,7 @@ class WaterTablePage extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div>
+        <div >
           <div>
             {/* <pre>{JSON.stringify(this.props.events.water)}</pre> */}
             <h3>Add a watering event</h3>
@@ -138,7 +138,7 @@ class WaterTablePage extends Component {
     }
 
     return (
-      <div>
+      <div className="soilDiv">
         <Nav />
         { content }
       </div>

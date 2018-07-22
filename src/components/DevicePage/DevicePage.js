@@ -91,7 +91,7 @@ class DevicePage extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div>
+        <div >
           <div>
           {/* <pre>{JSON.stringify(this.props.devices.device.device)}</pre> */}
             <h2>Add another device</h2>
@@ -135,7 +135,7 @@ class DevicePage extends Component {
     }
 
     return (
-      <div>
+      <div className="soilDiv">
         <Nav />
         { content }
       </div>

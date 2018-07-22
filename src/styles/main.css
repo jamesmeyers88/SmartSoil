@@ -50,39 +50,47 @@ input[type="submit"] {
     background-color: #f8f8f8;
 }
 
-.navbar {
-  background-color: #53815e;
-  background-image: url('http://mediad.publicbroadcasting.net/p/wnpr/files/styles/x_large/public/201608/4671001039_1729876708_o_1.jpg');
-  width: 100%;
-  border-radius: 0px;
+.soilDiv {
+    background-image: url('http://www.soil-biotics.com/images/banner-2.jpg');
+    
+
 }
 
-ul {
+.navbar {
+    background-color: #53815e;
+    background-image: url('http://mediad.publicbroadcasting.net/p/wnpr/files/styles/x_large/public/201608/4671001039_1729876708_o_1.jpg');
+    width: 100%;
+    border-radius: 0px;
+    text-decoration: none !important;
+    /* text-decoration: underline; */
+    color: #eee;
+    float: center;
+  }
+
+  .navItem {
+    color: white;
+    text-align: center;
+    text-decoration: none !important;
+    font-size: 15pt;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+    font-family: helvetica;
+    text-transform: uppercase;
+    float: center;
+}
+
+/* ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
+
 li {
-    float: left;
-}
+    display: inline-block;
+    float: center;
+} */
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
 
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    text-decoration: underline;
-    color: #eee;
-}
-
-.container {
-    display: grid;
-}

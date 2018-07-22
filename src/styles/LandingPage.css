@@ -1,0 +1,79 @@
+.container {
+    display: grid inline-block;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-auto-rows: minmax(100px, auto);
+    background-image: url("/public/images/soilPic.jpg");
+    justify-items: center;
+}
+
+.image-cropper {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+img {
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+    padding: 0, auto;
+    
+}
+
+/* .backyard {
+    grid-column-start: 4;
+    grid-row-start: 1;
+} */
+
+.plantSensor {
+    grid-column-start: 3;
+    grid-row-start: 2;
+}
+
+.particle {
+    grid-column-start: 4;
+    grid-row-start: 2;
+}
+
+.sensor {
+    grid-column-start: 2;
+    grid-row-start: 2;
+}
+
+.info {
+    width: 300px;
+    padding: none;
+    margin: none;
+    grid-column-start: 3;
+    grid-row-start: 1;
+}
+/* info paragraph */
+
+
+/* backyard garden #1 */
+/* .item-b {
+    grid-row-start: 2;
+    grid-column-start: 1;
+} */
+
+/* backyard garden #2 */
+/* .item-c {
+    grid-column-start: 1;
+    grid-row-start: 2;
+} */
+
+/* houseplant and sensor */
+/* .item-d {
+    grid-column-start: 3;
+    grid-column-end: span 2;
+    grid-row-start: 2;
+} */
+
+/* cat sitting with plants */
+/* .item-e {
+    grid-column-start: 4;
+    grid-row-start: 2;
+} */
