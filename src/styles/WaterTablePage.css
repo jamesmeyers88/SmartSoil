@@ -1,8 +1,8 @@
 #water_form {
     background-color: rgb(84, 146, 201);
-    width: 40%;
+    width: 45%;
     height: 30px;
-    margin: 20px auto;
+    margin: 15px auto;
     /* padding: 20px; */
     padding-left: 80px;
     border-radius: 2px;
@@ -13,7 +13,9 @@
     width: 75%;
     overflow: auto;
     margin: auto;
-    margin-bottom: 30px;
+    padding: 10px;
+    margin-bottom: 200px;
+    margin-top: 20px;
 
 }
 
@@ -22,11 +24,7 @@
     margin: auto;
 }
 
-.formDiv{
-    margin: auto;
-}
-
 .title {
-    color: white;
+   color: black;
     text-decoration: underline 
 }

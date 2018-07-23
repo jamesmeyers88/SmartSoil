@@ -95,18 +95,16 @@ class WaterTablePage extends Component {
     if (this.props.user.userName) {
       content = (
         <div >
-          <div>
-            {/* <pre>{JSON.stringify(this.props.events.water)}</pre> */}
-            <h3 className="title">Add A New Watering Event</h3>
-              <form onSubmit={this.submitWater} id="water_form">
-                <div className="formDiv">
-                  <input type='date' placeholder='Date (xx/xx/xxxx)' onChange={this.handleEvent('date')} value={this.state.userEvent.date} />
-                  <input type='text' placeholder='Amount (in oz)' onChange={this.handleEvent('water_amount')} value={this.state.userEvent.water_amount} />
-                  <input type='submit' value='Submit' />
-                </div>
-              </form>
-          </div>
             <Paper id="paper">
+                <div>
+                  {/* <pre>{JSON.stringify(this.props.events.water)}</pre> */}
+                  <h2 className="title">Did you water today?</h2>
+                    <form onSubmit={this.submitWater} id="water_form">
+                        <input type='date' placeholder='Date (xx/xx/xxxx)' onChange={this.handleEvent('date')} value={this.state.userEvent.date} />
+                        <input type='text' placeholder='Amount (in oz)' onChange={this.handleEvent('water_amount')} value={this.state.userEvent.water_amount} />
+                        <input type='submit' value='Submit' />
+                    </form>
+                </div>
               <h3>Water Event History</h3>
               <Table id="table">
                 <TableHead>

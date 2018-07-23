@@ -7,7 +7,7 @@ import Modal from '@material-ui/core/Modal';
 // import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import { WATER_ACTIONS } from '../../redux/actions/waterActions'
-import '../../styles/WaterModal.css';
+import '../../styles/Modal.css'
 import { connect } from 'react-redux';
 
 function getModalStyle() {
@@ -93,12 +93,9 @@ class SimpleModal extends React.Component {
             <Typography variant="title" id="modal-title">
               Edit your water event:
             </Typography>
-            {/* <Typography variant="subheading" id="simple-modal-description">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography> */}
             <form id="update_form" onSubmit={()=>{this.updateEvent(this.props.updateId)} }>
-              <input type='date' placeholder="Date (xx/xx/xxxx)" onChange={this.handleEvent('date')} 
-              value={this.state.userEvent.date} />
+              {/* <input type='date' placeholder="Date (xx/xx/xxxx)" onChange={this.handleEvent('date')} 
+              value={this.state.userEvent.date} /> */}
               <input type='text' placeholder='Amount (in oz)' onChange={this.handleEvent('water_amount')} 
               value={this.state.userEvent.water_amount} />
               <input type='submit' value='Submit' />

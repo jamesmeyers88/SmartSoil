@@ -7,7 +7,7 @@ import Modal from '@material-ui/core/Modal';
 // import Button from '@material-ui/core/Button';
 import EditIcon from '@material-ui/icons/Edit';
 import { DEVICE_ACTIONS } from '../../redux/actions/deviceActions'
-import '../../styles/WaterModal.css';
+import '../../styles/Modal.css';
 import { connect } from 'react-redux';
 
 function getModalStyle() {
