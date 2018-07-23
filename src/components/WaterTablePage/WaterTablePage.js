@@ -18,6 +18,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 // import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
 import '../../styles/WaterTablePage.css';
+// import { TextField } from 'material-ui';
 // import swal from 'sweetalert';
 
 
@@ -96,18 +97,17 @@ class WaterTablePage extends Component {
         <div >
           <div>
             {/* <pre>{JSON.stringify(this.props.events.water)}</pre> */}
-            <h3>Add a watering event</h3>
+            <h3 className="title">Add A New Watering Event</h3>
               <form onSubmit={this.submitWater} id="water_form">
-                <input type='date' placeholder='Date (xx/xx/xxxx)' onChange={this.handleEvent('date')} value={this.state.userEvent.date} />
-                <input type='text' placeholder='Amount (in oz)' onChange={this.handleEvent('water_amount')} value={this.state.userEvent.water_amount} />
-                {/* <select>
-                    <option selected value="gal">gal</option>
-                    <option value="liter">L</option>
-                </select> */}
-                <input type='submit' value='Submit' />
+                <div className="formDiv">
+                  <input type='date' placeholder='Date (xx/xx/xxxx)' onChange={this.handleEvent('date')} value={this.state.userEvent.date} />
+                  <input type='text' placeholder='Amount (in oz)' onChange={this.handleEvent('water_amount')} value={this.state.userEvent.water_amount} />
+                  <input type='submit' value='Submit' />
+                </div>
               </form>
           </div>
             <Paper id="paper">
+              <h3>Water Event History</h3>
               <Table id="table">
                 <TableHead>
                   <TableRow>
@@ -124,9 +124,7 @@ class WaterTablePage extends Component {
                         <TableCell>{event.date}</TableCell>
                         <TableCell>{event.water_amount} oz</TableCell>
                         <TableCell><SimpleModalWrapped updateId={event.event_id}/></TableCell>
-                        {/* <TableCell><Button onClick={() => this.updateEvent(Number(event.event_id))}><SimpleModalWrapped /></Button></TableCell> */}
                         <TableCell><Button onClick={() => this.deleteEvent(Number(event.event_id))}><DeleteIcon /></Button></TableCell>
-                        {/* <TableCell><SimpleModalWrapped /></TableCell> */}
                       </TableRow>
                     );
                   })}

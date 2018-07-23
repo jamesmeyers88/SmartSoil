@@ -22,22 +22,22 @@ class Nav extends Component {
     return (
   <div className="container navbar">
         <div className="navItem">
-          <Link to="/dashboard">
+          <Link to="/dashboard" style={{ textDecoration: 'none' }}>
             Dashboard
           </Link>
         </div>
         <div className="navItem">
-          <Link to="/device">
+          <Link to="/device" style={{ textDecoration: 'none' }}>
             Devices
           </Link>
         </div>
         <div className="navItem">
-          <Link to="/watertable">
+          <Link to="/watertable" style={{ textDecoration: 'none' }}>
             Water Table
           </Link>
         </div>
         <div className="navItem" >
-          <Link onClick={this.logout} to="/home">
+          <Link onClick={this.logout} to="/home" style={{ textDecoration: 'none' }}>
             Sign Out
           </Link>
         </div>

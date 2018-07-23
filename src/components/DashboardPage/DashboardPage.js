@@ -38,14 +38,10 @@ class DashboardPage extends Component {
   }
   
   // Ansync componentDidMount to allow graph data to populate
-  async componentDidMount() {
+  componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.props.dispatch({ type: WEATHER_ACTIONS.FETCH_TEMP });
     this.props.dispatch({ type: SOIL_ACTIONS.FETCH_SOIL });
-    // this.props.dispatch({ type: WATER_ACTIONS.FETCH_EVENTS});
-    // await new Promise(resolve => {setTimeout(resolve, 1000)})
-    // console.log('this is the water events', this.props.water)
-    // this.loopData();
   }// end componentDidMount
   
   componentDidUpdate() {
@@ -57,11 +53,7 @@ class DashboardPage extends Component {
   render() {
       let content = null;
       let soilMessage = null;
-      // let moisture = this.props.soilData.soilData[0].moisture
-      // let moistness = this.props.soilData.soil
-      // let moistNegative = -(this.props.soilData.soil)
-      // let soilEvents = this.props.soilData.soilData
-      
+
       // Show soilMessage
       if (this.props.user.userName && this.props.soilData.soilData[0]) {
 

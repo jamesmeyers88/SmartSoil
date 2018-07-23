@@ -3,19 +3,30 @@
     width: 40%;
     height: 30px;
     margin: 20px auto;
-    padding: 20px;
+    /* padding: 20px; */
+    padding-left: 80px;
     border-radius: 2px;
 }
 
 
-Paper {
-    width: 80%;
+#paper {
+    width: 75%;
     overflow: auto;
+    margin: auto;
+    margin-bottom: 30px;
 
 }
 
-Table {
+#table {
     width: inherit;
+    margin: auto;
+}
 
+.formDiv{
+    margin: auto;
+}
 
+.title {
+    color: white;
+    text-decoration: underline 
 }
