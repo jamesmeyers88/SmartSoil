@@ -4,12 +4,12 @@
     grid-auto-rows: auto;
 }
 
-/* .weatherImage {
-    padding: 10px;
-} */
+.weatherImage {
+    padding: none;
+}
 
 .icon {
-    width: 60px;
+    width: 50px;
     padding-bottom: 5px;
 }
 

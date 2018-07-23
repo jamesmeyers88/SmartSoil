@@ -4,7 +4,6 @@ import { SOIL_ACTIONS } from '../../redux/actions/soilActions';
 import { WATER_ACTIONS } from '../../redux/actions/waterActions';
 import ReactChartkick, { LineChart } from 'react-chartkick'
 import Chart from 'chart.js'
-import Paper from '@material-ui/core/Paper';
 ReactChartkick.addAdapter(Chart)
 
 
@@ -53,7 +52,7 @@ class Graph extends Component {
 
     render(){
         return(
-            <LineChart id="users-chart" width="500px" height="300px" data={this.state.graphObject} xtitle="Date" ytitle="Soil moisture (exp. as negative)" download={ true }/>
+            <LineChart id="users-chart" width="500px" height="300px" data={this.state.graphObject} xtitle="Date" ytitle="Soil Moisture Level" download={ true }/>
         )
     };
 }

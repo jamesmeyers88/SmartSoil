@@ -60,7 +60,7 @@ class SimpleModal extends React.Component {
       device: this.state.device
     }
     this.props.dispatch({ type: DEVICE_ACTIONS.UPDATE_DEVICE, payload: toUpdate});
-    this.handleClose;
+    this.handleClose();
   } // end updateEvent
 
   handleEvent = (key) => (event) => {

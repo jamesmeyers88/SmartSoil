@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
 import '../../styles/WeatherComponent.css'
 
 const mapStateToProps = state => ({
@@ -11,7 +11,7 @@ class WeatherComponent extends Component {
    
     
     render() {
-        let modTemp = parseInt(this.props.weather.temp.americaTemp)
+        let modTemp = parseInt(this.props.weather.temp.americaTemp, 10)
         let icon = this.props.weather.temp.icon
         let imgSrc = null;
         let weatherContent = null;
@@ -72,6 +72,7 @@ class WeatherComponent extends Component {
 
         return (
             <div>
+                {/* <pre>{JSON.stringify(this.props.weather)}</pre> */}
                 { weatherContent }
             </div>
         )

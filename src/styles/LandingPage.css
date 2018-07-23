@@ -7,11 +7,11 @@
 }
 
 .image-cropper {
-    width: 100px;
-    height: 100px;
-    position: relative;
+    width: 150px;
+    height: 150px;
     overflow: hidden;
     border-radius: 50%;
+    position: relative 
 }
 
 img {
@@ -20,33 +20,28 @@ img {
     height: 100%;
     width: auto;
     padding: 0, auto;
-    
 }
-
-/* .backyard {
-    grid-column-start: 4;
-    grid-row-start: 1;
-} */
 
 .plantSensor {
     grid-column-start: 3;
-    grid-row-start: 2;
+    grid-row-start: 3;
 }
 
 .particle {
     grid-column-start: 4;
-    grid-row-start: 2;
+    grid-row-start: 3;
 }
 
 .sensor {
     grid-column-start: 2;
-    grid-row-start: 2;
+    grid-row-start: 3;
 }
 
 .info {
-    width: 300px;
+    width: 400px;
     padding: none;
     margin: none;
+    text-align: center;
     grid-column-start: 3;
-    grid-row-start: 1;
+    grid-row-start: 2;
 }

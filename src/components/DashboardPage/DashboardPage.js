@@ -38,10 +38,10 @@ class DashboardPage extends Component {
   }
   
   // Ansync componentDidMount to allow graph data to populate
-  componentDidMount() {
+  async componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.props.dispatch({ type: WEATHER_ACTIONS.FETCH_TEMP });
-    this.props.dispatch({ type: SOIL_ACTIONS.FETCH_SOIL });
+    await this.props.dispatch({ type: SOIL_ACTIONS.FETCH_SOIL });
   }// end componentDidMount
   
   componentDidUpdate() {
@@ -61,7 +61,7 @@ class DashboardPage extends Component {
           soilMessage = (
             <div className="moist">
               <p className="moist">You are successfully moist.</p>
-              <img className="waterIcon"src="https://static.thenounproject.com/png/823280-200.png" />
+              <img className="waterIcon"src="https://static.thenounproject.com/png/823280-200.png" alt="dont water icon" />
               <p className="moist">You don't need to water.</p>
             </div>
           );//end moist message
@@ -69,7 +69,7 @@ class DashboardPage extends Component {
           soilMessage = (
             <div>
               <p>You should seriously think about watering.</p>
-              <img src="https://static.thenounproject.com/png/372939-200.png" />
+              <img src="https://static.thenounproject.com/png/372939-200.png" alt="water droplet icon" />
             </div>
           );//end dry message
         } //end 'soilMessage' logic

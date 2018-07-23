@@ -1,5 +1,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    
 }
 
 .instructions h1 {
@@ -79,23 +80,12 @@ input[type="submit"] {
     font-family: helvetica;
     text-transform: uppercase;
     float: center;
+    text-shadow: 1px 1px #13141b;
 }
 
 a:hover {
     color: #111;
 }
 
-/* ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-
-li {
-    display: inline-block;
-    float: center;
-} */
 
 

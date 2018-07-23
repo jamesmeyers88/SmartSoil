@@ -16,15 +16,16 @@
     padding: 10px;
     margin-bottom: 200px;
     margin-top: 20px;
-
+    background-color: lightcyan
 }
 
 #table {
     width: inherit;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 .title {
    color: black;
-    text-decoration: underline 
+text-decoration: underline 
 }
