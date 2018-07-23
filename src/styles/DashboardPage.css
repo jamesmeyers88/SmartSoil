@@ -1,43 +1,46 @@
 .container {
-    /* background-color: rgba(	141, 97, 66, 0.50); */
     display: grid;
-    grid-template-columns: 20px, 200px, auto, 50px, 20px;
-    grid-template-rows: 10px, 300px, 100px, 100px;
+    grid-template-columns: 1fr, 200px, 1fr;
+    grid-template-rows: 1fr, auto, auto, 50px;
     grid-gap: 20px;
-    /* grid-auto-rows: 00px; */
-}
-
-.soilDiv {
-    background-image: url('http://www.soil-biotics.com/images/banner-2.jpg');
-    
-
-}
-/* Welcome */
-.welcome {
-    grid-column-start: 2;
-    grid-row-start: 1;
-
-}
-
-/* Soil Message */
-.message {
-    grid-column-start: 3;
-    grid-row-start: 2;
-    
-}
-
-
-/* Weather Component */
-.weather {
-    grid-column-start: 4;
-    grid-row-start: 1;
-    
 }
 
 /* Graph */
 .graph {
     grid-column-start: 2;
+    /* grid-column-end: span 2; */
     grid-row-start: 2;
-    grid-column-end: span 1;
-    
+    grid-row-end: span 2;
+    margin-bottom: 50px;
 }
+
+/* Soil Message */
+.soil {
+    grid-column-start: 3;
+    grid-row-start: 2;
+    height: 200px;
+    width: auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+    /* -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box; */
+}
+
+/* Weather Component */
+.weather {
+    grid-column-start: 3;
+    grid-row-start: 3; 
+    width: 150px;
+    height: 100px;
+    text-align: center;
+    /* -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box; */
+}
+
+.waterIcon{
+    width: 50px;
+}
+

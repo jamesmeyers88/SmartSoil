@@ -17,8 +17,8 @@ body {
 }
 
 form {
-    background-color: #dbd5d5;
-    width: 30%;
+    background-color: #1d8624;
+    width: 20%;
     height: 250px;
     margin: 20px auto;
     padding: 25px;
@@ -28,6 +28,7 @@ form {
 input {
     margin: 5px;
     margin-bottom: 10px;
+    align-content: stretch;
 }
 
 input[type="submit"] {
@@ -52,8 +53,6 @@ input[type="submit"] {
 
 .soilDiv {
     background-image: url('http://www.soil-biotics.com/images/banner-2.jpg');
-    
-
 }
 
 .navbar {
@@ -61,16 +60,13 @@ input[type="submit"] {
     background-image: url('http://mediad.publicbroadcasting.net/p/wnpr/files/styles/x_large/public/201608/4671001039_1729876708_o_1.jpg');
     width: 100%;
     border-radius: 0px;
-    text-decoration: none !important;
-    /* text-decoration: underline; */
     color: #eee;
-    float: center;
+    
   }
 
   .navItem {
     color: white;
     text-align: center;
-    text-decoration: none !important;
     font-size: 15pt;
     padding-bottom: 0px;
     margin-bottom: 0px;
@@ -78,6 +74,11 @@ input[type="submit"] {
     font-family: helvetica;
     text-transform: uppercase;
     float: center;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #111;
 }
 
 /* ul {

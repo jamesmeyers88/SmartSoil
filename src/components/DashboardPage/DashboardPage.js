@@ -69,7 +69,7 @@ class DashboardPage extends Component {
           soilMessage = (
             <div className="moist">
               <p className="moist">You are successfully moist.</p>
-              <img className="moist"src="https://static.thenounproject.com/png/823280-200.png" />
+              <img className="waterIcon"src="https://static.thenounproject.com/png/823280-200.png" />
               <p className="moist">You don't need to water.</p>
             </div>
           );//end moist message
@@ -85,18 +85,13 @@ class DashboardPage extends Component {
         // the content to be rendered on userName/soilData load
         content = (
           <div className="container">
-            <div >
-              {/* <h1 className="item welcome" id="welcome">
-                Welcome, { this.props.user.userName }!
-              </h1> */}
-            </div>
-            <Paper className="item message">
+            <Paper className="soil">
               { soilMessage }
             </Paper>
-            <Paper className="item weather">
+            <Paper className="weather">
                 <WeatherComponent className="weatherComponent"/>
             </Paper>
-            <Paper className="item graph">
+            <Paper className="graph">
               <h3>Soil Moisture History</h3>
               <Graph />
             </Paper>
@@ -108,6 +103,7 @@ class DashboardPage extends Component {
       <div className="soilDiv">
         <Nav />
         { content }
+        
       </div>
     );
   }
