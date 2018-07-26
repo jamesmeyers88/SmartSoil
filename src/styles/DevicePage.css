@@ -8,18 +8,26 @@
 }
 
 h2 {
-    color: white;
+    color: black;
     float: center;
+    text-decoration: underline;
 }
-/* 
-#paper {
-    width: 90%;
-    overflow: auto;
-} */
 
-/* #table {
-    width: 90%;
-} */
+#paper {
+    width: 75%;
+    overflow: auto;
+    margin: auto;
+    padding: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    /* background-color: lightcyan */
+}
+
+#table {
+    width: inherit;
+    margin: auto;
+    margin-bottom: 20px;
+}
 
 /* TableRow {
     whiteSpace: 'normal';

@@ -52,9 +52,9 @@ router.put('/:id', (req, res) => {
   let id = req.params.id;
   let date = req.body.userEvent.date;
   let water_amount = req.body.userEvent.water_amount;
-  let queryText = `UPDATE water SET date = $1, water_amount = $2
-  WHERE event_id = $3;`;
-  pool.query(queryText, [date, water_amount, id])
+  let queryText = `UPDATE water SET water_amount = $1
+  WHERE event_id = $2;`;
+  pool.query(queryText, [ water_amount, id])
   .then((result) => {
     console.log( `error UPDATing water from DB`)
       res.sendStatus(200);

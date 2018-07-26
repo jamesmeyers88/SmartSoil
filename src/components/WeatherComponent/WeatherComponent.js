@@ -13,6 +13,7 @@ class WeatherComponent extends Component {
     render() {
         let modTemp = parseInt(this.props.weather.temp.americaTemp, 10)
         let icon = this.props.weather.temp.icon
+        console.log(`this is the icon`, icon)
         let imgSrc = null;
         let weatherContent = null;
 
@@ -61,7 +62,8 @@ class WeatherComponent extends Component {
             // mist icon
             case '50d':
             case '50n':
-                imgSrc = (<div className="weatherImage"><p>It's {modTemp}˚F</p><img className="icon" src="https://cdn.onlinewebfonts.com/svg/img_541488.png" alt="mist" /></div>)
+                imgSrc = (<div className="weatherImage"><p>It's {modTemp}˚F</p><img className="icon" src="/images/cloudy.png" alt="mist" /></div>)
+        // https://cdn.onlinewebfonts.com/svg/img_541488.png
                 return imgSrc;
             default:
                 // link is a sunglasses icon...just for fun.

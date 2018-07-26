@@ -92,18 +92,19 @@ class DevicePage extends Component {
     if (this.props.user.userName) {
       content = (
         <div >
-          <div>
-          {/* <pre>{JSON.stringify(this.props.devices.device.device)}</pre> */}
-            <h2>Add another device</h2>
-            <form onSubmit={this.submitDevice} id="device_form">
-              <input type='text' placeholder="Device ID" onChange={this.handleEvent('device_id')} value={this.state.device.device_id}/>
-              <input type='text' placeholder="Authorization Token"onChange={this.handleEvent('auth_token')} value={this.state.device.auth_token} />
-              <input type='text' placeholder="Notes/Description" onChange={this.handleEvent('notes')} value={this.state.device.notes}/>
-              <input type='submit' value="Submit" />
-            </form>
-          </div>
-          <div>
             <Paper id="paper">
+                <div>
+                {/* <pre>{JSON.stringify(this.props.devices.device.device)}</pre> */}
+                  <h2>Do you have another device?</h2>
+                  <form onSubmit={this.submitDevice} id="device_form">
+                    <input type='text' placeholder="Device ID" onChange={this.handleEvent('device_id')} value={this.state.device.device_id}/>
+                    <input type='text' placeholder="Authorization Token"onChange={this.handleEvent('auth_token')} value={this.state.device.auth_token} />
+                    <input type='text' placeholder="Notes/Description" onChange={this.handleEvent('notes')} value={this.state.device.notes}/>
+                    <input type='submit' value="Submit" />
+                  </form>
+                </div>
+                <div>
+                <h3>Current Devices</h3>
                 <Table id="table">
                   <TableHead>
                     <TableRow>
@@ -128,8 +129,8 @@ class DevicePage extends Component {
                     })}
                   </TableBody>
               </Table>
-            </Paper>
           </div>
+            </Paper>
         </div>
       );
     }

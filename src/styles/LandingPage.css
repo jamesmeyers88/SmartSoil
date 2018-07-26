@@ -44,4 +44,18 @@ img {
     text-align: center;
     grid-column-start: 3;
     grid-row-start: 2;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+
+}
+
+.info2 {
+    width: 400px;
+    padding: none;
+    margin: none;
+    text-align: center;
+    grid-column-start: 3;
+    grid-row-start: 4;
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
 }

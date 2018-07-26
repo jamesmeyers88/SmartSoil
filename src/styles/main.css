@@ -19,10 +19,11 @@ body {
 
 h1, h2, h3 {
     text-align: center;
+    font-family: Helvetica, sans-serif;
 }
 
 form {
-    background-color: #1d8624;
+    background-color: #01a00c;
     width: 20%;
     height: 250px;
     margin: 20px auto;
@@ -58,6 +59,7 @@ input[type="submit"] {
 
 .soilDiv {
     background-image: url('http://www.soil-biotics.com/images/banner-2.jpg');
+    background-repeat: repeat-y;
 }
 
 .navbar {
@@ -70,7 +72,7 @@ input[type="submit"] {
     
   }
 
-  .navItem {
+.navItem {
     color: white;
     text-align: center;
     font-size: 15pt;
