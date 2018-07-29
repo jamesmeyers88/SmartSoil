@@ -20,7 +20,6 @@ h2 {
     padding: 10px;
     margin-bottom: 20px;
     margin-top: 20px;
-    /* background-color: lightcyan */
 }
 
 #table {
@@ -29,8 +28,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* TableRow {
-    whiteSpace: 'normal';
-    wordWrap: 'break-word';
-  } */
+TableCell {
+    overflowX: 'auto',
+  }
 
