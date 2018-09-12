@@ -1,5 +1,10 @@
 This app assumes that the user has a particle photon and water sensor functioning and logging data to the Particle Cloud API. It also assume that the user will know how to set up a cron job (basic code included in this repo) to request data at intervals to populate the database with moisture measurements and where to update their personal device id and access token in the code to make this repo function on their local host.
 
+Instead, navigate to [SmartSoil](https://smartsoil.herokuapp.com/#/home) where you can see a deployed version. If you don't want to register, the existing login details are:
+
+username: james
+password: 1234
+
 ## Prerequisites
 
 Before you get started, make sure you have the following software installed on your computer:
