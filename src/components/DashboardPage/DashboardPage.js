@@ -13,11 +13,8 @@ import Paper from '@material-ui/core/Paper';
 
 import '../../styles/DashboardPage.css'
 
-// import { triggerLogout } from '../../redux/actions/loginActions';
 import WeatherComponent from '../WeatherComponent/WeatherComponent';
-// import ReactChartkick, { AreaChart } from 'react-chartkick'
-// import Chart from 'chart.js'
-// ReactChartkick.addAdapter(Chart)
+
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -25,6 +22,7 @@ const mapStateToProps = state => ({
   soilData: state.soilData,
   water: state.events,
 });
+
 class DashboardPage extends Component {
   
   constructor(props){
