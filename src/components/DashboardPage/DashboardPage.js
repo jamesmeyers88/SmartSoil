@@ -57,7 +57,7 @@ class DashboardPage extends Component {
       // Show soilMessage
       if (this.props.user.userName && this.props.soilData.soilData[0]) {
 
-        if (this.props.soilData.soilData[0].moisture < 4000){
+        if (this.props.soilData.soilData[0].moisture < 3200){
           soilMessage = (
             <div className="moist">
               <p className="moist">You are successfully moist.</p>
@@ -69,7 +69,7 @@ class DashboardPage extends Component {
           soilMessage = (
             <div>
               <p>You should seriously think about watering.</p>
-              <img src="https://static.thenounproject.com/png/372939-200.png" alt="Halp! I need water" />
+              <img className="waterIcon" src="https://static.thenounproject.com/png/372939-200.png" alt="Halp! I need water" />
             </div>
           );//end dry message
         } //end 'soilMessage' logic
