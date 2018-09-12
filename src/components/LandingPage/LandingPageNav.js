@@ -20,13 +20,18 @@ class LandingPageNav extends Component {
   render() {
 
     return (
-  <div className=" container navbar">
-          <Link to="/login" style={{ textDecoration: 'none', marginLeft: '450px' }} className="navItem">
+  <div className="navbar">
+  
+    <center>
+          <Link to="/login" style={{ textDecoration: 'none' }} className="navItem">
             Login
           </Link>
+          <space> </space>
           <Link className="navItem" style={{ textDecoration: 'none' }} to="/register">
             Register
           </Link>
+
+    </center>
   </div>
     );
   }
