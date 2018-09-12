@@ -26,8 +26,8 @@ CREATE TABLE water (
 
 CREATE TABLE device (
 	id serial,
-    device_ID VARCHAR (40),
-    auth_token VARCHAR (30),
+    device_ID VARCHAR (50),
+    auth_token VARCHAR (50),
     username VARCHAR (80),
     notes VARCHAR (500),
     PRIMARY KEY (device_ID)
