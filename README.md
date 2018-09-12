@@ -1,4 +1,4 @@
-I **STONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+This app assumes that the user has a particle photon and water sensor functioning and logging data to the Particle Cloud API. It also assume that the user will know how to set up a cron job (basic code included in this repo) to request data at intervals to populate the database with moisture measurements and where to update their personal device id and access token in the code to make this repo function on their local host.
 
 ## Prerequisites
 
