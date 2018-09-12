@@ -59,3 +59,10 @@ img {
     font-family: monospace, sans-serif;
     font-weight: bold;
 }
+
+.card {
+    width: 60%;
+    margin-top: 60px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+}
