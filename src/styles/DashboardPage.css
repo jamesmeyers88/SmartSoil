@@ -1,39 +1,17 @@
-.container {
-    display: grid;
-    grid-template-columns: 1fr, 200px, 1fr;
-    grid-template-rows: 1fr, auto, auto, 50px;
-    grid-gap: 20px;
-}
-
-/* Graph */
-.graph {
-    grid-column-start: 2;
-    grid-row-start: 2;
-    grid-row-end: span 2;
-    margin-bottom: 50px;
-}
 
 /* Soil Message */
-.soil {
-    grid-column-start: 3;
-    grid-row-start: 2;
-    height: 200px;
-    width: auto;
-    padding-left: 5px;
-    padding-right: 5px;
-    text-align: center;
-}
-
-/* Weather Component */
-.weather {
-    grid-column-start: 3;
-    grid-row-start: 3; 
-    width: 150px;
-    height: 100px;
-    text-align: center;
+.soilWeather {
+    margin-top: 60px;
+    margin-bottom: auto;
 }
 
 .waterIcon{
     width: 50px;
 }
 
+.paper {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}

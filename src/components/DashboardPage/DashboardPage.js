@@ -57,10 +57,10 @@ class DashboardPage extends Component {
 
         if (this.props.soilData.soilData[0].moisture < 3200){
           soilMessage = (
-            <div className="moist">
-              <p className="moist">You are successfully moist.</p>
+            <div>
+              <p>You are successfully moist.</p>
               <img className="waterIcon"src="https://static.thenounproject.com/png/823280-200.png" alt="Do not water icon"/>
-              <p className="moist">You don't need to water.</p>
+              <p>You don't need to water.</p>
             </div>
           );//end moist message
         } else {
@@ -74,26 +74,25 @@ class DashboardPage extends Component {
 
         // the content to be rendered on userName/soilData load
         content = (
+
           <div className="container">
-            <Paper className="soil">
-              { soilMessage }
-            </Paper>
-            <Paper className="weather">
+              <center className="soilWeather">
+            <Paper className="paper">
+                { soilMessage }
                 <WeatherComponent className="weatherComponent"/>
+                <h3>Soil Moisture History</h3>
+                <Graph />
             </Paper>
-            <Paper className="graph">
-              <h3>Soil Moisture History</h3>
-              <Graph />
-            </Paper>
+              </center>
           </div>
+
         );
       }// end conditional render on auth/soilData load
 
     return (
-      <div className="soilDiv">
+      <div>
         <Nav />
         { content }
-        
       </div>
     );
   }
